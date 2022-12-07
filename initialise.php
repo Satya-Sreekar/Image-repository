@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title> DATABASE INITIALISATION </title>
+        <title> DATABASE INITIALISATION ONE TIME USE ONLY </title>
     </head>
     <body>
     <?php
