@@ -2,7 +2,7 @@
 <html>
     <Head>
         <title>
-            You Are Now Logged in 
+            You Are Now Logged in! 
         </title>
         <style>
     body 
