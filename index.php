@@ -13,7 +13,7 @@
     h1,a{
     margin:0; padding:0;
     font-size:300%;
-    color: lightgray;
+    color: Maroon;
     }
     .login {
   -webkit-border-radius: 10px 10px 10px 10px;
@@ -49,10 +49,10 @@ select{
   margin:10px 0px 10px 0px;
 }
 input[type=submit]{
-  background-color: #81D8D0;
+  background-color: lightblue;
   border-radius:15px;
   border: none;
-  color: white;
+  text-color: rgb(64,0,32);
   padding: 16px 32px;
   text-decoration: none;
   margin: 4px 2px;
@@ -73,14 +73,17 @@ input[type=submit]:hover{
 
 </style>
 
-<h1>Login to Continue </h1>
+<h1>LOGIN</h1>
 <div class="log">
 <div class="login">
-<form action="/initialise.php" method="GET">
+<form action="/validation.php" method="POST">
+  
   <label for="User"><h3>User Name:</h3></label>
   <input type="text" id="UserName" name="UserName" value="">
+  
   <label for="password"><h3>Password:</h3></label>
   <input type="password" id="password" name="password" value="">
+  
   <label for="role"><h3>Role:</h3></label>
   <select id="role" name="role">
         <option value="User">User</option>
