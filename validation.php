@@ -110,11 +110,11 @@
             } 
         elseif($ct==2)
             {
-                header('Location: /fail1.php');                                // IF USER AND PASSWORD MATCH ARE NOT FOUND
+                header('Location: /fail1.php');                                // IF USER IS FOUND, PASSWORD MISMATCH
             }
         elseif($ct==3)
             {
-                header('Location: /fail2.php');                                // IF USER AND PASSWORD MATCH ARE NOT FOUND
+                header('Location: /fail2.php');                                // IF USER IS NOT FOUND
             }
         ?>  
     </body>
