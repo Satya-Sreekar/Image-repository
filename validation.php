@@ -8,7 +8,7 @@
         $pwd=$_POST["password"];
         $rl=$_POST["role"];
         $UDB = "USE myDB";
-        //echo "Name:" . $un . "<br>Password:" . $pwd . "<br>Role:" . $rl;   //UNCOMMENT TO SEE THE DATA SENT FROM THE LOGIN PAGE
+        echo "Name:" . $un . "<br>Password:" . $pwd . "<br>Role:" . $rl . "<br>";   //UNCOMMENT TO SEE THE DATA SENT FROM THE LOGIN PAGE
         $servername = "localhost";
         $username = "root";
         $password = "";
@@ -39,9 +39,10 @@
                 { 
                     if ($row["Uid"] === $un) 
                     {
-                        if($row["pd"]==$pwd)
+                        if($row["pd"] === $pwd)
                         {
                             $ct=1;
+                            break;
                         }
                         else
                         {
@@ -61,9 +62,10 @@
                 { 
                     if ($row["Uid"] === $un) 
                     {
-                        if($row["pd"]==$pwd)
+                        if($row["pd"] === $pwd)
                         {
                             $ct=1;
+                            break;
                         }
                         else
                         {
@@ -81,11 +83,13 @@
             $ct=0;                                                           //INITIALISE FLAG VARIABLE
             while($row = $result->fetch_assoc())                                //PARSING THROUGH THE DATA
                 { 
+                    echo "username: " . $row["Uid"] . "password: " .  $row["pd"] . "<br>"; 
                     if ($row["Uid"] === $un) 
                     {
-                        if($row["pd"]==$pwd)
+                        if($row["pd"] === $pwd)
                         {
                             $ct=1;
+                            break;
                         }
                         else
                         {
@@ -99,7 +103,9 @@
                 }
           break;            
         default:
-            header('Location: /fail.php');
+                echo "<script>alert('User Not found!Try Again')</script>";                                // IF USER IS NOT FOUND
+                echo "<script>location.href='index.php'</script>";
+            
           ;
         }
 
