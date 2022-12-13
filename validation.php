@@ -39,7 +39,7 @@
                 { 
                     if ($row["Uid"] === $un) 
                     {
-                        if($row["pd"==$pwd])
+                        if($row["pd"]==$pwd)
                         {
                             $ct=1;
                         }
@@ -83,7 +83,7 @@
                 { 
                     if ($row["Uid"] === $un) 
                     {
-                        if($row["pd"==$pwd])
+                        if($row["pd"]==$pwd)
                         {
                             $ct=1;
                         }
