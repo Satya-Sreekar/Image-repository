@@ -15,6 +15,9 @@
     font-size:300%;
     color: Maroon;
     }
+    h3{
+      margin:0; padding:0;
+    }
     .login {
   -webkit-border-radius: 10px 10px 10px 10px;
   border-radius: 10px 10px 10px 10px;
@@ -26,7 +29,6 @@
   padding: 30px;
   -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
   box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
-  text-align: center;
 
 }
 .log{
@@ -38,10 +40,6 @@
   min-height: 100%;
   padding: 20px;
 }
-h3{
-    padding: 0px;
-    margin: 0px;
-}
 input{
   margin:10px;
 }
@@ -49,10 +47,10 @@ select{
   margin:10px 0px 10px 0px;
 }
 input[type=submit]{
-  background-color: lightblue;
+  background-color: rgb(0,0,255);
   border-radius:15px;
   border: none;
-  text-color: rgb(64,0,32);
+  color: white;
   padding: 16px 32px;
   text-decoration: none;
   margin: 4px 2px;
@@ -60,10 +58,10 @@ input[type=submit]{
   
 }
 input[type=submit]:hover{
-  background-color: rgb(0,0,255);
+  background-color: lightblue;
   border-radius:15px;
   border: none;
-  color: white;
+  text-color: rgb(64,0,32);
   padding: 16px 32px;
   text-decoration: none;
   margin: 4px 2px;
@@ -79,10 +77,10 @@ input[type=submit]:hover{
 <form action="/validation.php" method="POST">
   
   <label for="User"><h3>User Name:</h3></label>
-  <input type="text" id="UserName" name="UserName" value="">
+  <input type="text" id="UserName" name="UserName" value="" placeholder="Enter your User Name">
   
   <label for="password"><h3>Password:</h3></label>
-  <input type="password" id="password" name="password" value="">
+  <input type="password" id="password" name="password" value="" placeholder="Enter your Password">
   
   <label for="role"><h3>Role:</h3></label>
   <select id="role" name="role">

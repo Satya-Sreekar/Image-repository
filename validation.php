@@ -61,7 +61,7 @@
                 { 
                     if ($row["Uid"] === $un) 
                     {
-                        if($row["pd"==$pwd])
+                        if($row["pd"]==$pwd)
                         {
                             $ct=1;
                         }
@@ -110,11 +110,13 @@
             } 
         elseif($ct==2)
             {
-                header('Location: /fail1.php');                                // IF USER IS FOUND, PASSWORD MISMATCH
+                echo "<script>alert('Incorrect Password!Try Again')</script>";
+                echo "<script>location.href='index.php'</script>";                               // IF USER IS FOUND, PASSWORD MISMATCH
             }
         elseif($ct==3)
             {
-                header('Location: /fail2.php');                                // IF USER IS NOT FOUND
+                echo "<script>alert('User Not found!Try Again')</script>";                                // IF USER IS NOT FOUND
+                echo "<script>location.href='index.php'</script>";
             }
         ?>  
     </body>
