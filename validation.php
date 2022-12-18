@@ -111,7 +111,9 @@
 
         
         if($ct==1)
-            {
+            {   session_start();
+                $_SESSION['UN'] = $un;
+                $_SESSION['Role'] = $rl;
                 header('Location: /welcome.php');                              //IF USER AND PASSWORD MATCH ARE FOUND
             } 
         elseif($ct==2)
