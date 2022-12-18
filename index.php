@@ -70,6 +70,12 @@ input[type=submit]:hover{
 }
 
 </style>
+<?php session_start();
+	if(isset($_SESSION['UN'])){
+		header("location:welcome.php");
+		exit;
+	}
+?>
 
 <h1>LOGIN</h1>
 <div class="log">
