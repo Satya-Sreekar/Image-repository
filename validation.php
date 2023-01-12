@@ -3,19 +3,16 @@
         <title>Validation Page</title>
     </head>
     <Body>
-    <?php 
+    <?php
+    require 'DBinfo.php';
         $un=$_POST["UserName"];
         $pwd=$_POST["password"];
         $rl=$_POST["role"];
         $UDB = "USE myDB";
-        echo "Name:" . $un . "<br>Password:" . $pwd . "<br>Role:" . $rl . "<br>";   //UNCOMMENT TO SEE THE DATA SENT FROM THE LOGIN PAGE
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
+        //echo "Name:" . $un . "<br>Password:" . $pwd . "<br>Role:" . $rl . "<br>";   //UNCOMMENT TO SEE THE DATA SENT FROM THE LOGIN PAGE
         $DA = "SELECT * FROM Admin";
         $DU = "SELECT * FROM User";
         $DM = "SELECT * FROM Moderator";
-        $conn = new mysqli($servername, $username, $password);
                                                                             // Check connection
         if ($conn->connect_error) 
             {                                             
@@ -114,7 +111,19 @@
             {   session_start();
                 $_SESSION['UN'] = $un;
                 $_SESSION['Role'] = $rl;
-                header('Location: /welcome.php');                              //IF USER AND PASSWORD MATCH ARE FOUND
+                if($rl=="User")
+                {
+                    header('Location: /User.php'); 
+                }
+                elseif($rl=="Moderator")
+                {
+                    header('Location: /Admin.php'); 
+                }
+                elseif($rl=="Admin")
+                {
+                    header('Location: /Mod.php'); 
+                }
+                                             //IF USER AND PASSWORD MATCH ARE FOUND
             } 
         elseif($ct==2)
             {
