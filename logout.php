@@ -1,7 +1,8 @@
 <?php
 session_start();
-echo $_SESSION["UN"].'<br>'.$_SESSION["Role"];
+echo $_SESSION["UN"].'<br>'.$_SESSION["Role"];//Remove In Final
 session_unset();
 session_destroy();
 echo '<H1><Center>Sucessfully Logged Out</Center></H1><br>';
+header( "refresh:3;url=index.php" );
 ?>
