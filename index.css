@@ -4,11 +4,11 @@ html
     height: 100%;
 }
 body {
-    margin: 10%;
-    height: 100%;
     font-family: 'Ubuntu', sans-serif;
     background-size: 100% 110%;
     text-align:center;
+    margin: 10%;
+
     }
 h1,a
     {
@@ -42,6 +42,7 @@ h3
     width: auto;
     min-height: 100%;
     padding: 20px;
+    margin: auto;
     }
 input
     {

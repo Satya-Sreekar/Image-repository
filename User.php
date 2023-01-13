@@ -5,17 +5,17 @@
         </title>
         <link rel="stylesheet" href="User.css">
     </head>
-    <table>
     <body>
+        <Center><H1 id="UserTitle">User Upload</H1></Center>
+        <div>
     <?php
         session_start ();
-        echo "Welcome " . $_SESSION['UN'];
         require('DBinfo.php');
         $C = "SELECT * FROM Crop";
     ?>
-    <table border="0" cellspacing="20" cellpadding="5" align="Center"> 
+    <table border="0" cellspacing="50" cellpadding="5" align="Center" width="500px" margin="50"> 
         <th>
-            Select Crop  
+            <H1>Select Crop:</h1>  
         </th>
         <td>
           <select id="Crop" name="Crop">';
@@ -25,19 +25,21 @@
             while ($row = $result->fetch_assoc()) 
             {
                 $Crop = $row["CName"];
-                echo'<option value='.$Crop.'>'.$Crop.'</option>';
+                echo'<H1><option value='.$Crop.'>'.$Crop.'</option></h1>';
             }
-            echo '</select></td>';
+            echo 
+            '</select>
+            </td>';
             $result->free();
 
         }
         ?>
         <tr>
         <td>
-        <center><a href="/logout.php">Logout</a></center>
-    </td>
+        <button onclick="window.location.href='logout.php'"><H4>Logout</H4></button>
+        </td>
         <td> 
-        <button type="button" onclick="myFunction()">Next</button>
+        <button type="button" onclick="myFunction()"><H4>Next</H4></button>
         </td>
         </tr>
         <script>
@@ -47,7 +49,6 @@
         document.write(y[x].text);
         }
         </script>
-
+        </div>
     </body>
-    </table>   
 </html>

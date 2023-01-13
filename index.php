@@ -4,11 +4,10 @@
 <link rel="stylesheet" href="index.css">
 <?php session_start();
 	if(isset($_SESSION['UN'])){
-		header("location:welcome.php");
+		header("location:logout.php");
 		exit;
 	}
 ?>
-
 <h1>LOGIN</h1>
 <div class="log">
 <div class="login">
