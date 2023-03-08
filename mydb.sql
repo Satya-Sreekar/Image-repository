@@ -396,6 +396,8 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`Uid`, `pd`) VALUES
 ('Laasya', 'ULaasya@2004'),
 ('Sreekar', 'USreekar@2003'),
+('nithin', '123'),
+('Shahazaad', 'admin123'),
 ('superU', 'superU');
 
 --
