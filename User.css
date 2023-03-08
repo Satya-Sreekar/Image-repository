@@ -1,24 +1,63 @@
 html
 {
-    background:linear-gradient(rgb(26, 212, 29),rgb(133, 235, 155));
+    background:linear-gradient(#141e30, #243b55);
     height: 100%;
+}
+h1
+{
+    margin-top: 5%;
+    margin-bottom: 3%;
+    color: aqua;
+}
+select,input[type=date]
+{
+    width: 100%;
+    background-color: aqua;
+}
+h2,h3
+{
+    margin: 1%;
+}
+th,td
+{
+    padding-left:1%;
+    padding-right:1%;
+     
 }
 table
 {
-    height: 90%;
+    border-spacing: 10px;
+}
+input[type=submit]
+    {
+    background-color: #141e30;
+    border-radius:15px;
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    margin-top: 20px;
+    text-decoration: none;
+    cursor: pointer;
+    }
+input[type=submit]:hover
+    {
+    background-color: #243b55;
+    border-radius:15px;
+    border: none;
+    color: rgb(64,0,32);
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 20px;
 
-}
-UserTitle
-{
-    margin: 50;
-}
-select
-{
-    width:  150%;
-    height: 42px;
-}
-button
-{
-    width:100%;
-    align-content: center;
+    }
+#box {
+    position: relative;
+    text-align: center;
+    padding: 3%;
+    width: 20%;
+    height: 50%;
+    margin: 20px auto;
+    background:linear-gradient(white,rgb(200, 245, 245));
+    border-radius: 10px;
 }
