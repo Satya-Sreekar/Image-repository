@@ -1,22 +1,50 @@
 html
 {
-    background:linear-gradient(#141e30, #243b55);
+    background:cornsilk;
     height: 100%;
 }
 h1
 {
-    margin-top: 5%;
-    margin-bottom: 3%;
-    color: aqua;
+    font-size: x-large;
+    color: black;
+	-webkit-text-stroke: 1px black;
+	-webkit-text-fill-color: white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 4.5px;
+    margin-bottom: 6px;
 }
 select,input[type=date]
 {
     width: 100%;
-    background-color: aqua;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    border-radius: 5px;
+    background-color:white;
 }
 h2,h3
 {
     margin: 1%;
+    font-size: large;
+    text-align:center ;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    margin-top: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+.heading
+{
+    border: 2px solidrgba(72,172,76,251);
+    background-color:rgba(74,174,78,253);
+    margin-top: 0%;
+    padding-top: 5px;
+    padding-right: 90px;
+    padding-bottom: 5px;
+    padding-left: 90px;
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.15);
 }
 th,td
 {
@@ -30,34 +58,41 @@ table
 }
 input[type=submit]
     {
-    background-color: #141e30;
+    background-color: rgb(7, 138, 7);
     border-radius:15px;
     border: none;
-    color: white;
-    padding: 8px 16px;
-    margin-top: 20px;
+    color: rgb(255, 255, 255);
+    padding-left: 50px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-right: 50px;
+    border-radius: 5px;
+    margin-top: 35px;
     text-decoration: none;
     cursor: pointer;
     }
 input[type=submit]:hover
     {
-    background-color: #243b55;
-    border-radius:15px;
-    border: none;
-    color: rgb(64,0,32);
-    padding: 8px 16px;
-    text-decoration: none;
-    cursor: pointer;
-    margin-top: 20px;
-
+    opacity: 0.7;
     }
+input[type=submit]:active
+{
+    opacity:0.6;
+}
 #box {
+    border: 2px solid rgb(0, 0, 0);
     position: relative;
     text-align: center;
     padding: 3%;
+    padding-top:5px ;
+    padding-bottom:160px ;
+    padding-left: 50px;
+    padding-right: 50px;
     width: 20%;
     height: 50%;
     margin: 20px auto;
-    background:linear-gradient(white,rgb(200, 245, 245));
+    background:white;
+    margin-top: 80px;
     border-radius: 10px;
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.15);
 }
