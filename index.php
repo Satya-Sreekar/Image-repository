@@ -11,7 +11,7 @@
 <div class='heading'>
   <img src="1car.png" alt=""height=5% width=5%>
   <center>
-  <h1 class='hh'>Oil Seeds Pests and Diseases Image Repository System V<span class='v'>2.0</span></h1>
+  <h1 class='hh'>OilSeeds Pests and Diseases Image Repository System V<span class='v'>2.0</span></h1>
   </center>
   <img src="iior-logo.jpg" alt=""height=5% width=5%>
 </div>
