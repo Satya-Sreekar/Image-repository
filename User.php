@@ -16,11 +16,13 @@
             require('DBinfo.php');
             $C = "SELECT * FROM Crop";
         ?>
+        <div class='heading'>
         <center>
             <h1>
-                User Upload
+                Upload Crop Details
             </h1>
         </center>
+        </div>
         <div id="box">
             <form action="/UPro.php" method="POST">
                 <table align="center" cellpadding="3px"> 
