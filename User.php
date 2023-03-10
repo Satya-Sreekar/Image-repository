@@ -104,7 +104,7 @@
                             </select>
                         </td>
                         <td colspan="2" align="center">
-                            <select id="cstage" name="cstage">
+                            <select class='l'id="cstage" name="cstage">
                                     <option value="Germination">Germination stage</option>
                                     <option value="Seedling">Seedling stage</option>
                                     <option value="Rosette">Rosette stage</option>
