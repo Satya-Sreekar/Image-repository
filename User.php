@@ -73,29 +73,16 @@
                     <tr>
                         <td colspan="2" align="center">
                             <h2>
-                                Crop stage
-                            </h2>  
-                        </td>
-                        <td colspan="2" align="center">
-                            <h2>
                                 Select Year
                             </h2>
                         </td>
+                        <td colspan="2" align="center">
+                            <h2>
+                                Crop stage
+                            </h2>  
+                        </td>
                     </tr>
                     <tr>
-                        <td colspan="2" align="center">
-                            <select id="cstage" name="cstage">
-                                    <option value="Germination">Germination stage</option>
-                                    <option value="Seedling">Seedling stage</option>
-                                    <option value="Rosette">Rosette stage</option>
-                                    <option value="Vegetative">Vegetative stage</option>
-                                    <option value="Flowering">Flowering stage</option>
-                                    <option value="Seed Setting">Seed Setting stage</option>
-                                    <option value="Seed Filling">Seed Filling stage</option>
-                                    <option value="Ripening">Ripening stage</option>
-                                    <option value="Harvesting">Harvesting stage</option>
-                            </select>
-                        </td>
                         <td>
                             <select name="year" id="year">
                                 <option value="2015">2015</option>
@@ -116,7 +103,19 @@
                                 <option value="2030">2030</option>
                             </select>
                         </td>
-                        
+                        <td colspan="2" align="center">
+                            <select id="cstage" name="cstage">
+                                    <option value="Germination">Germination stage</option>
+                                    <option value="Seedling">Seedling stage</option>
+                                    <option value="Rosette">Rosette stage</option>
+                                    <option value="Vegetative">Vegetative stage</option>
+                                    <option value="Flowering">Flowering stage</option>
+                                    <option value="Seed Setting">Seed Setting stage</option>
+                                    <option value="Seed Filling">Seed Filling stage</option>
+                                    <option value="Ripening">Ripening stage</option>
+                                    <option value="Harvesting">Harvesting stage</option>
+                            </select>
+                        </td>    
                     </tr>
                     <tr>
                         <td colspan="2" align="center">
@@ -153,18 +152,25 @@
                     </tr>
                     <tr>
                         <td colspan="2" align="center">
-                            <h3>
-                                State
-                            </h3>
-                        </td>
-                        <td colspan="2" align="center">
                             <h2>
                                 Season
                             </h2>
                         </td>
+                        <td colspan="2" align="center">
+                            <h3>
+                                State
+                            </h3>
+                        </td>
                     </tr>
                     <tr>
-                    <td colspan="2" align="center">
+                    <td colspan="2" align="cetner">
+                            <select id="season" name="season" class="pageElement">
+                                    <option value="Kharif">Kharif</option>
+                                    <option value="Rabi">Rabi</option>
+                                    <option value="Summer">Summer</option>
+                            </select>
+                        </td>
+                        <td colspan="2" align="center">
                             <select id="state" name="state">
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>
@@ -194,13 +200,6 @@
                                     <option value="Uttarakhand">Uttarakhand</option>
                                     <option value="Uttar Pradesh">Uttar Pradesh</option>
                                     <option value="West Bengal">West Bengal</option>
-                            </select>
-                        </td>
-                        <td colspan="2" align="cetner">
-                            <select id="season" name="season" class="pageElement">
-                                    <option value="Kharif">Kharif</option>
-                                    <option value="Rabi">Rabi</option>
-                                    <option value="Summer">Summer</option>
                             </select>
                         </td>
                     </tr>
