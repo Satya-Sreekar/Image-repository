@@ -195,7 +195,8 @@
                                     <option value="Uttar Pradesh">Uttar Pradesh</option>
                                     <option value="West Bengal">West Bengal</option>
                             </select>
-                        </td><td colspan="2" align="cetner">
+                        </td>
+                        <td colspan="2" align="cetner">
                             <select id="season" name="season" class="pageElement">
                                     <option value="Kharif">Kharif</option>
                                     <option value="Rabi">Rabi</option>
@@ -204,19 +205,19 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2" align="center">
                             <h3>
                                 Pest Or Disease
                             </h3>
                         </td>
-                        <td>
+                        <td colspan="2" align="center">
                             <h3>
                                 Area
                             </h3>
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2" align="center">
                             <select name="pord" id="pord">
                                 <option value="pest">Pest</option>
                                 <option value="disease">Disease</option>
@@ -224,7 +225,7 @@
                                 <option value="healthy">Healthy</option>
                             </select>
                         </td>
-                        <td>
+                        <td colspan="2" align="center">
                             <input type="Text" name="Area" id="Area">
                         </td>
                     </tr>
