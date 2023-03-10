@@ -31,7 +31,7 @@
                             <h2>Select Crop<h2>
                         </td>
                         <td colspan="2" align="center">
-                            <h2>Select Date</h2>
+                            <h2>Select Month</h2>
                         </td>
                     </tr>
                     <tr>
@@ -54,7 +54,20 @@
                             ?>
                         </td>
                         <td>
-                            <input type="date" id="date" name="date">
+                        <select name="month" id="month">
+                            <option value="1">January</option>
+                            <option value="2">February</option>
+                            <option value="3">March</option>
+                            <option value="4">April</option>
+                            <option value="5">May</option>
+                            <option value="6">June</option>
+                            <option value="7">July</option>
+                            <option value="8">August</option>
+                            <option value="9">Septmember</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                        </select>
                         </td>
                     </tr>
                     <tr>
@@ -65,7 +78,7 @@
                         </td>
                         <td colspan="2" align="center">
                             <h2>
-                                State
+                                Select Year
                             </h2>
                         </td>
                     </tr>
@@ -83,38 +96,27 @@
                                     <option value="Harvesting">Harvesting stage</option>
                             </select>
                         </td>
-                        <td colspan="2" align="center">
-                            <select id="state" name="state">
-                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
-                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
-                                    <option value="Assam">Assam</option>
-                                    <option value="Bihar">Bihar</option>
-                                    <option value="Chattisgarh">Chattisgarh</option>
-                                    <option value="Goa">Goa</option>
-                                    <option value="Gujarat">Gujarat</option>
-                                    <option value="Haryana">Haryana</option>
-                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
-                                    <option value="Jharkhand">Jharkhand</option>
-                                    <option value="Karnataka">Karnataka</option>
-                                    <option value="Kerala">Kerala</option>
-                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
-                                    <option value="Maharashtra">Maharashtra</option>
-                                    <option value="Manipur">Manipur</option>
-                                    <option value="Meghalaya">Meghalaya</option>
-                                    <option value="Mizoram">Mizoram</option>
-                                    <option value="Nagaland">Nagaland</option>
-                                    <option value="Odisha">Odisha</option>
-                                    <option value="Punjab">Punjab</option>
-                                    <option value="Rajasthan">Rajasthan</option>
-                                    <option value="Sikkim">Sikkim</option>
-                                    <option value="Tamil Nadu">Tamil Nadu</option>
-                                    <option value="Telangana">Telangana</option>
-                                    <option value="Tripura">Tripura</option>
-                                    <option value="Uttarakhand">Uttarakhand</option>
-                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
-                                    <option value="West Bengal">West Bengal</option>
+                        <td>
+                            <select name="year" id="year">
+                                <option value="2015">2015</option>
+                                <option value="2016">2016</option>
+                                <option value="2017">2017</option>
+                                <option value="2018">2018</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2025">2025</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                                <option value="2030">2030</option>
                             </select>
                         </td>
+                        
                     </tr>
                     <tr>
                         <td colspan="2" align="center">
@@ -152,7 +154,7 @@
                     <tr>
                         <td colspan="2" align="center">
                             <h3>
-                                Pest or Disease
+                                State
                             </h3>
                         </td>
                         <td colspan="2" align="center">
@@ -162,14 +164,38 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="2" align="center">
-                            <select id="pord" name="pord">
-                            <option value='pest'>Pest</option>
-                            <option value='diease'>Disease</option>
-                            <option value='NE'>Natural Enemy</option>
-                            <option value='Healthy'>Healthy</option>
-                        </td>
-                        <td colspan="2" align="cetner">
+                    <td colspan="2" align="center">
+                            <select id="state" name="state">
+                                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                    <option value="Assam">Assam</option>
+                                    <option value="Bihar">Bihar</option>
+                                    <option value="Chattisgarh">Chattisgarh</option>
+                                    <option value="Goa">Goa</option>
+                                    <option value="Gujarat">Gujarat</option>
+                                    <option value="Haryana">Haryana</option>
+                                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                    <option value="Jharkhand">Jharkhand</option>
+                                    <option value="Karnataka">Karnataka</option>
+                                    <option value="Kerala">Kerala</option>
+                                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                    <option value="Maharashtra">Maharashtra</option>
+                                    <option value="Manipur">Manipur</option>
+                                    <option value="Meghalaya">Meghalaya</option>
+                                    <option value="Mizoram">Mizoram</option>
+                                    <option value="Nagaland">Nagaland</option>
+                                    <option value="Odisha">Odisha</option>
+                                    <option value="Punjab">Punjab</option>
+                                    <option value="Rajasthan">Rajasthan</option>
+                                    <option value="Sikkim">Sikkim</option>
+                                    <option value="Tamil Nadu">Tamil Nadu</option>
+                                    <option value="Telangana">Telangana</option>
+                                    <option value="Tripura">Tripura</option>
+                                    <option value="Uttarakhand">Uttarakhand</option>
+                                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                    <option value="West Bengal">West Bengal</option>
+                            </select>
+                        </td><td colspan="2" align="cetner">
                             <select id="season" name="season" class="pageElement">
                                     <option value="Kharif">Kharif</option>
                                     <option value="Rabi">Rabi</option>
@@ -177,7 +203,31 @@
                             </select>
                         </td>
                     </tr>
-                   
+                    <tr>
+                        <td>
+                            <h3>
+                                Pest Or Disease
+                            </h3>
+                        </td>
+                        <td>
+                            <h3>
+                                Area
+                            </h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <select name="pord" id="pord">
+                                <option value="pest">Pest</option>
+                                <option value="disease">Disease</option>
+                                <option value="NE">Natural Enemy</option>
+                                <option value="healthy">Healthy</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="Text" name="Area" id="Area">
+                        </td>
+                    </tr>
                     <tr>
                         <td align="center" colspan="4">
                             <input type="submit" value="Next">
