@@ -55,18 +55,18 @@
                         </td>
                         <td>
                         <select name="month" id="month">
-                            <option value="1">January</option>
-                            <option value="2">February</option>
-                            <option value="3">March</option>
-                            <option value="4">April</option>
-                            <option value="5">May</option>
-                            <option value="6">June</option>
-                            <option value="7">July</option>
-                            <option value="8">August</option>
-                            <option value="9">Septmember</option>
-                            <option value="10">October</option>
-                            <option value="11">November</option>
-                            <option value="12">December</option>
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="Septmember">Septmember</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
                         </select>
                         </td>
                     </tr>
@@ -220,12 +220,13 @@
                             <select name="pord" id="pord">
                                 <option value="pest">Pest</option>
                                 <option value="disease">Disease</option>
-                                <option value="NE">Natural Enemy</option>
+                                <option value="NaturalEnemy">Natural Enemy</option>
                                 <option value="healthy">Healthy</option>
                             </select>
                         </td>
                         <td colspan="2" align="center">
-                            <input type="Text" name="Area" id="Area">
+                            <input type="Text" name="Area" id="Area" oninput="this.value=this.value.replace(/[^a-zA-Z]/g,'');">
+                            
                         </td>
                     </tr>
                     <tr>

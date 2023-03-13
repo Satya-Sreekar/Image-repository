@@ -1,119 +1,106 @@
-<html>
-    <head>
-        <?php
-            session_start ();
-            require('DBinfo.php');
-            if (!isset($_SESSION['UN']))
-                {
-                    header("location:index.php");
-                    exit;
-                }
-        ?>
-        <title>
-            Image Upload
-        </title>
-        <link rel="stylesheet" href="imup.css">
-    </head>
-    <body>
-        <div class='heading'>
-            <center>
-                <h1>
-                Image Upload
-                </h1>
-            </center>
-            </div>
-            <div id="box">
-            <form action="upload.php" method="post" enctype="multipart/form-data">
-                <table>
-                    <tr>
-                        <th>
-                            Image Upload
-                        </th>
-                        <th align="center">
-                            Background   
-                        </th>
+html
+{
+    background:cornsilk;
+    height: 100%;
+}
+h1
+{
+    font-size: x-large;
+    color: black;
+	-webkit-text-stroke: 1px black;
+	-webkit-text-fill-color: white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 4.5px;
+    margin-bottom: 6px;
+}
+select
+{
+    width: 100%;
+    padding-left: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    border-radius: 5px;
+    background-color:white;
+}
+h2,h3
+{
+    margin: 1%;
+    font-size: large;
+    text-align:center ;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body{
+    margin-top: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
+}
+.heading
+{
+    border: 2px solidrgba(72,172,76,251);
+    background-color:rgba(74,174,78,253);
+    margin-top: 0%;
+    padding-top: 5px;
+    padding-right: 90px;
+    padding-bottom: 5px;
+    padding-left: 90px;
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.15);
+}
+th,td
+{
+    padding-left:1%;
+    padding-right:1%;
+     
+}
+table
+{
+    border-spacing: 10px;
 
-                    </tr>
-                    <tr> 
-                        <td>
-                            <input type="file" name="images[]" multiple>
-                        </td>          
-                        <td>
-                        <select name="bg" id="bg">
-                            <option value="Lab">Lab</option>
-                            <option value="Feild">Field</option>
-                            <option value="bg">With Background</option>
-                        </select>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th colspan="2">
-                            <?php
-                                $c="Select ".$_SESSION['CROP']." ".$_SESSION['PORD'];
-                                echo $c.'-Scientific Name';
-                            ?>
-                        </th>
-                    </tr>
-                    <tr>
-                        <td colspan="2" align="center">
-                            <select id="Efr" name="Efr">';
-                                <?php
-                                    $c=$_SESSION['CROP'].$_SESSION['PORD'];
-                                    $C="Select * FROM $c";
-                                    if ($result = $conn->query($C)) 
-                                    {
-                                        while ($row = $result->fetch_assoc()) 
-                                        {
-                                            $PName = $row["PName"];
-                                            $SName = $row["SCName"];
-                                            echo'<H1><option value='.$PName.$SName.'>'.$PName.'-'.$SName.'</option></h1>';
-                                        }
-                                        echo 
-                                        '</select>
-                                        </td>';
-                                        $result->free();
-                                    }
-                                  ?>
-                        </td>    
-                    </tr>
-                    <tr>
-                        <th>
-                            What is in the picture?
-                        </th>
-                        <th>
-                            Stage
-                        </th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <select name="Desc" id="Desc">
-                                <option value="part">Effected Part</option>
-                                <option value="pest">Pest</option>
-                            </select>
-                        </td>
-                        <td align="center">
-                            <select id="Stage" name="Stage">';
-                                <?php
-                                    $c='s'.$_SESSION['CROP'].$_SESSION['PORD'];
-                                    $C="Select * FROM $c";
-                                    if ($result = $conn->query($C)) 
-                                    {
-                                        while ($row = $result->fetch_assoc()) 
-                                        {
-                                            $stage = $row["stages"];
-                                            echo'<H1><option value='.$stage.'>'.$stage.'</option></h1>';
-                                        }
-                                        echo 
-                                        '</select>
-                                        </td>';
-                                        $result->free();
-                                    }
-                                  ?>
-                        </td>
-                    </tr>
-                </table>
-                    <input type="submit" value="Upload Images">
-            </form>
-        </div>
-    </body>
-</html>
+}
+input[type=submit]
+    {
+    background-color: rgb(7, 138, 7);
+    border-radius:15px;
+    border: none;
+    color: rgb(255, 255, 255);
+    padding-left: 50px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-right: 50px;
+    border-radius: 5px;
+    margin-top: 25px;
+    text-decoration: none;
+    cursor: pointer;
+    }
+input[type=submit]:hover
+    {
+    opacity: 0.7;
+    }
+input[type=submit]:active
+{
+    opacity:0.6;
+}
+.l
+{
+    margin-left: 10px;
+    padding-right: 0px;
+    width: 160px;
+}
+#box {
+    border: 2px solid rgb(0, 0, 0);
+    position: relative;
+    text-align: center;
+    padding: 3%;
+    padding-top:10px ;
+    padding-bottom:250px ;
+    padding-left: 50px;
+    padding-right: 50px;
+    width: 20%;
+    height: 50%;
+    margin: 20px auto;
+    background:white;
+    margin-top: 2.5%;
+    margin-left: 37%;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.15);
+}
