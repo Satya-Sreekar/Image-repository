@@ -26,7 +26,7 @@
             <form action="upload.php" method="post" enctype="multipart/form-data">
                 <table>
                     <tr>
-                        <th>
+                        <th>            
                             Image Upload
                         </th>
                         <th align="center">
@@ -36,10 +36,14 @@
                     </tr>
                     <tr> 
                         <td>
-                            <label for="inputTag">  
-                            <input id = "inputTag" type="file" name="images[]" multiple>
-                            </label>
-                        </td>          
+                        <div class="file-upload">
+                        <div class="file-select">
+                        <div class="file-select-button" id="fileName">Choose File</div>
+                        <div class="file-select-name" id="noFile">No file chosen...</div> 
+                        <input type="file" name="images[]" multiple>
+                        </div>
+                         </div>
+                    </td>          
                         <td>
                         <select name="bg" id="bg">
                             <option value="Lab">Lab</option>
