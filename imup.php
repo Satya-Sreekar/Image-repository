@@ -36,7 +36,9 @@
                     </tr>
                     <tr> 
                         <td>
-                            <input type="file" name="images[]" multiple>
+                            <label for="inputTag">  
+                            <input id = "inputTag" type="file" name="images[]" multiple>
+                            </label>
                         </td>          
                         <td>
                         <select name="bg" id="bg">

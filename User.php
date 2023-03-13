@@ -48,7 +48,7 @@
                                 }
                                 echo 
                                 '</select>
-                                </td>';
+                                </td>'; 
                                 $result->free();
                             }
                             ?>

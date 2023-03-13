@@ -5,26 +5,13 @@ html
 }
 h1
 {
-        margin: 5%;
-        color: aqua;
-}
-td,th
-{
-    padding: 1.5%;
-}
-th
-{
-    font-size: large;
+    margin: 5%;
+    color: aqua;
 }
 select
-{   
+{
     width: 100%;
-    padding-left: 15px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 15px;
-    border-radius: 5px;
-    background-color:white;
+    background-color: aqua;
 }
 h2,h3
 {
@@ -90,3 +77,9 @@ input[type=submit]:hover
     margin-top: 9.5%;
     box-shadow: 0 10px 20px 0 rgba(0,0,0,0.15)
 }
+label{
+    cursor: pointer;
+}
+input[type=file]{
+    display: none;
+  } 
