@@ -7,6 +7,26 @@ if (!isset($_SESSION['UN']))
 }
 // Connect to the database
 require('DBinfo.php');
+//Fetching Data from imup.php
+$_SESSION['bg']=$_POST['bg'];
+$_SESSION['Efr']=$_POST['Efr'];
+$_SESSION['Desc']=$_POST['Desc'];
+$_SESSION['bg']=$_POST['bg'];
+$_SESSION['Stage']=$_POST['Stage'];
+         $crop=$_SESSION['CROP'];
+         $month=$_SESSION['month'];
+         $year=$_SESSION['year'];
+         $cs=$_SESSION['cs'];
+         $part=$_SESSION['part'];
+         $device=$_SESSION['device'];
+         $season=$_SESSION['season'];
+         $state=$_SESSION['state'];
+         $pord=$_SESSION['PORD'];
+         $area=$_SESSION['Area'];
+         $bg=$_SESSION['bg'];
+         $imagedesc=$_SESSION['Efr'];
+         $imagecont=$_SESSION['Desc'];
+         $stage=$_SESSION['Stage'];
 
 // Check if the form has been submitted
 if (isset($_FILES['images'])) {
@@ -68,8 +88,8 @@ if (isset($_FILES['images'])) {
     $data = mysqli_real_escape_string($conn, $data);
 
     // Insert the image into the database
-    $sql = "INSERT INTO images (name, size, type, data)
-            VALUES ('$image_name', '$image_size', '$image_type', '$data')";
+    $sql = "INSERT INTO tempdb (`CROP`, `MONTH`, `YEAR`, `CROP STAGE`, `PARTS AFFECTED`, `DEVICE`, `SEASON`, `STATE`, `PORD`, `AREA`, `BACKGROUND`, `IMAGEDESC`, `IMAGECONT`, `STAGE`, `IMAGE`)
+                       VALUES ('$crop','$month','$year','$cs','$part','$device','$season','$state','$pord','$area','$bg','$imagedesc','$imagecont','$stage', '$data')";
     mysqli_query($conn, $sql);
   }
 }

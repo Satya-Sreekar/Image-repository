@@ -127,7 +127,7 @@ input[type=submit]:hover
 }
     .heading
 {
-    border: 2px solidrgba(72,172,76,251);
+    border: 2px solid rgba(72,172,76,251);
     background-color:rgba(74,174,78,253);
     margin-top: 0%;
     padding-top: 5px;
