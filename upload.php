@@ -1,33 +1,41 @@
 <?php
-session_start ();
-if (!isset($_SESSION['UN']))
-{
-    header("location:index.php");
-    exit;
+session_start();
+if (!isset($_SESSION['UN'])) {
+  header("location:index.php");
+  exit;
 }
 // Connect to the database
 require('DBinfo.php');
 //Fetching Data from imup.php
-$_SESSION['bg']=$_POST['bg'];
-$_SESSION['Efr']=$_POST['Efr'];
-$_SESSION['Desc']=$_POST['Desc'];
-$_SESSION['bg']=$_POST['bg'];
-$_SESSION['Stage']=$_POST['Stage'];
-         $crop=$_SESSION['CROP'];
-         $month=$_SESSION['month'];
-         $year=$_SESSION['year'];
-         $cs=$_SESSION['cs'];
-         $part=$_SESSION['part'];
-         $device=$_SESSION['device'];
-         $season=$_SESSION['season'];
-         $state=$_SESSION['state'];
-         $pord=$_SESSION['PORD'];
-         $area=$_SESSION['Area'];
-         $bg=$_SESSION['bg'];
-         $imagedesc=$_SESSION['Efr'];
-         $imagecont=$_SESSION['Desc'];
-         $stage=$_SESSION['Stage'];
+$_SESSION['bg'] = $_POST['bg'];
+$_SESSION['Efr'] = urlencode($_POST['Efr']);
+$_SESSION['Desc'] = $_POST['Desc'];
+$_SESSION['bg'] = $_POST['bg'];
+$_SESSION['Stage'] = $_POST['Stage'];
+$crop = $_SESSION['CROP'];
+$month = $_SESSION['month'];
+$year = $_SESSION['year'];
+$cs = $_SESSION['cs'];
+$part = $_SESSION['part'];
+$device = $_SESSION['device'];
+$season = $_SESSION['season'];
+$state = $_SESSION['state'];
+$pord = $_SESSION['PORD'];
+$area = $_SESSION['Area'];
+$bg = $_SESSION['bg'];
+if ($_SESSION['PORD'] != 'pest' || $_SESSION['PORD'] != 'disease') {
+  $pordname = urldecode($_SESSION['Efr']);
+} else {
+  $pordname = "N/A";
+}
+if ($_SESSION['PORD'] != 'pest') {
+  $imagecont = "N/A";
+  $stage = "N/A";
+} else {
+  $imagecont = $_SESSION['Desc'];
+  $stage = $_SESSION['Stage'];
 
+}
 // Check if the form has been submitted
 if (isset($_FILES['images'])) {
   // Loop through all uploaded files
@@ -88,9 +96,37 @@ if (isset($_FILES['images'])) {
     $data = mysqli_real_escape_string($conn, $data);
 
     // Insert the image into the database
-    $sql = "INSERT INTO tempdb (`CROP`, `MONTH`, `YEAR`, `CROP STAGE`, `PARTS AFFECTED`, `DEVICE`, `SEASON`, `STATE`, `PORD`, `AREA`, `BACKGROUND`, `IMAGEDESC`, `IMAGECONT`, `STAGE`, `IMAGE`)
-                       VALUES ('$crop','$month','$year','$cs','$part','$device','$season','$state','$pord','$area','$bg','$imagedesc','$imagecont','$stage', '$data')";
+    $sql="INSERT INTO images(`name`,`size`,`type`,`data`)
+                      Values('$image_name','$image_size','$image_type','$data')";
+    mysqli_query($conn, $sql);                  
+    $sql = "INSERT INTO tempdb (`CROP`, `MONTH`, `YEAR`, `CROP STAGE`,`PARTS-AFFECTED`, `DEVICE/SHOT`, `SEASON`, `STATE`, `PORD`, `AREA`, `BACKGROUND`, `PORDNAME`, `IMGCONTAINS`, `STAGE`, `IMAGE`)
+                       VALUES ('$crop' ,'$month','$year','$cs'       ,'$part'          ,'$device'     ,'$season','$state','$pord','$area','$bg'       ,'$pordname','$imagecont','$stage', '$data')";
     mysqli_query($conn, $sql);
   }
 }
+
+?>
+<html>
+
+<body>
+  <style>
+    html {
+      background-color: cornsilk;
+    }
+
+    h1 {
+      margin-top: 25%;
+    }
+  </style>
+  <center>
+    <h1>
+      Upload Sucessful
+    </h1>
+  </center>
+</body>
+
+</html>
+<?php
+header("location:logout.php");
+exit();
 ?>
