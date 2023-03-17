@@ -75,32 +75,33 @@ require 'DBinfo.php';
 <body>
   <script>
     function openFullscreenImage(img) {
-      // Create a new full-screen element
-      var fullscreen = document.createElement('div');
-      fullscreen.style.position = 'fixed';
-      fullscreen.style.top = 0;
-      fullscreen.style.left = 0;
-      fullscreen.style.width = '100%';
-      fullscreen.style.height = '100%';
-      fullscreen.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-      fullscreen.style.zIndex = 9999;
+  // Create a new full-screen element
+  var fullscreen = document.createElement('div');
+  fullscreen.style.position = 'fixed';
+  fullscreen.style.top = 0;
+  fullscreen.style.left = 0;
+  fullscreen.style.width = '100%';
+  fullscreen.style.height = '100%';
+  fullscreen.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+  fullscreen.style.zIndex = 9999;
 
-      // Create the image element and insert it into the full-screen element
-      var imgElem = document.createElement('img');
-      imgElem.src = img.src;
-      imgElem.style.maxWidth = '100%';
-      imgElem.style.maxHeight = '100%';
-      imgElem.style.margin = 'auto';
-      fullscreen.appendChild(imgElem);
+  // Create the image element and insert it into the full-screen element
+  var imgElem = document.createElement('img');
+  imgElem.src = img.src;
+  imgElem.style.display = 'block';
+  imgElem.style.maxWidth = '100%';
+  imgElem.style.maxHeight = '100%';
+  imgElem.style.margin = 'auto';
+  fullscreen.appendChild(imgElem);
 
-      // Add the full-screen element to the document body
-      document.body.appendChild(fullscreen);
+  // Add the full-screen element to the document body
+  document.body.appendChild(fullscreen);
 
-      // Add a click event listener to the full-screen element to remove it when clicked
-      fullscreen.addEventListener('click', function () {
-        document.body.removeChild(fullscreen);
-      });
-    }
+  // Add a click event listener to the full-screen element to remove it when clicked
+  fullscreen.addEventListener('click', function () {
+    document.body.removeChild(fullscreen);
+  });
+}
 
   </script>
 
