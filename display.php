@@ -79,6 +79,13 @@ require 'DBinfo.php';
 <body>
   <center>
     <script>
+      function confirmReject() {
+        var result = confirm("Are you sure you want to reject this?");
+        if (result) {
+          document.getElementById('submit-btn').click();
+        }
+      }
+
       function openFullscreenImage(img) {
         // Create a new full-screen element
         var fullscreen = document.createElement('div');
@@ -143,13 +150,13 @@ require 'DBinfo.php';
             <h2 class="z">CROP STAGE</h2>
           </th>
           <th>
-            <h2 class="z">PARTS AFFECTED</h2>
+            <h2 class="z">STAGE</h2>
           </th>
           <th>
             <h2 class="z">DEVICE</h2>
           </th>
           <th>
-            <h2 class="z">STAGE</h2>
+            <h2 class="z">PARTS AFFECTED</h2>
           </th>
           <th rowspan="2">
             <h2 class="z">IMAGE</h2>
@@ -197,6 +204,47 @@ require 'DBinfo.php';
                     <td><center>{$row['STAGE']}</center></td>
                     <td rowspan=" . "2" . "><img src=\"data:image/jpeg;base64," . base64_encode($row['IMAGE']) . "\" onclick=\"openFullscreenImage(this)\" style=\"width: 200px; height: 200px; cursor: pointer;\" /></td>
               </tr>
+              <style>
+                  .butt1{
+                    background-color:white;
+                    padding:3%;
+                    border-radius:10px;
+                    margin-bottom:15px;
+                  }
+                  .butt1:hover{
+                    background-color:green;
+                    color:white;
+                  }
+                  .butt1:active{
+                    opacity:0.7;
+                  }
+                  .butt2{
+                    background-color:white;
+                    padding:3%;
+                    border-radius:10px;
+                    margin-bottom:15px;
+                  }
+                  .butt2:hover{
+                    background-color:red;
+                    color:white;
+                  }
+                  .butt2:active{
+                    opacity:0.7;
+                  }
+                  .butt3{
+                    background-color:white;
+                    padding:3%;
+                    border-radius:10px;
+                    margin-bottom:15px;
+                  }
+                  .butt3:hover{
+                    background-color:#FFD700;
+                    color:cornsilk;
+                  }
+                  .butt3:active{
+                    opacity:0.7;
+                  }
+              </style>
               <tr>
                     <td><center>{$row['SEASON']}</center></td>
                     <td><center>{$row['STATE']}</center></td>
@@ -207,8 +255,22 @@ require 'DBinfo.php';
                     <td><center>{$row['IMGCONTAINS']}</center></td>
                     <td><center>
                           <form action='/transferdata.php' method='POST' style='text-align:center;'>
-                            <input type="."hidden"." name="."id"." value=".$id.">
-                            <input type='submit' name='approve' onclick='/transferdata.php' value='Approve Data $id'></input>
+                            <input type=" . "hidden" . " name=" . "id" . " value=" . $id . ">
+                            <input class='butt1' type='submit' name='approve' onclick='/transferdata.php' value='Approve &#x2714;'></input>
+                          </form>
+
+                          <form action='/transferdata.php' method='POST' style='text-align:center;'>
+                            <input type=" . "hidden" . " name=" . "id" . " value=" . $id . ">
+                            <input class='butt2' type='button' onclick=" . "confirmReject()" . " value='Reject &#x2716;'></input>
+                            <input type=" . "submit" . " id=" . "submit-btn" . " name=" . "approve" . " style=" . "display:none;" . "></input>
+                          </form>
+                      
+                     
+
+                      
+                          <form action='/transferdata.php' method='POST' style='text-align:center;'>
+                            <input type=" . "hidden" . " name=" . "id" . " value=" . $id . ">
+                            <input class='butt3' type='submit' name='approve' onclick='/transferdata.php' value='Edit &#x2712;'></input>
                           </form>
                         </center>
                     </td>
