@@ -1,7 +1,11 @@
 <?php
+session_start();
+if (!isset($_SESSION['UN'])) {
+  header("location:index.php");
+  exit;
+}
 require 'DBinfo.php';
 ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -73,106 +77,116 @@ require 'DBinfo.php';
 </head>
 
 <body>
-  <script>
-    function openFullscreenImage(img) {
-  // Create a new full-screen element
-  var fullscreen = document.createElement('div');
-  fullscreen.style.position = 'fixed';
-  fullscreen.style.top = 0;
-  fullscreen.style.left = 0;
-  fullscreen.style.width = '100%';
-  fullscreen.style.height = '100%';
-  fullscreen.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
-  fullscreen.style.zIndex = 9999;
+  <center>
+    <script>
+      function openFullscreenImage(img) {
+        // Create a new full-screen element
+        var fullscreen = document.createElement('div');
+        fullscreen.style.position = 'fixed';
+        fullscreen.style.top = 0;
+        fullscreen.style.left = 0;
+        fullscreen.style.width = '100%';
+        fullscreen.style.height = '100%';
+        fullscreen.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+        fullscreen.style.zIndex = 9999;
 
-  // Create the image element and insert it into the full-screen element
-  var imgElem = document.createElement('img');
-  imgElem.src = img.src;
-  imgElem.style.display = 'block';
-  imgElem.style.maxWidth = '100%';
-  imgElem.style.maxHeight = '100%';
-  imgElem.style.margin = 'auto';
-  fullscreen.appendChild(imgElem);
+        // Create the image element and insert it into the full-screen element
+        var imgElem = document.createElement('img');
+        imgElem.src = img.src;
+        imgElem.style.display = 'block';
+        imgElem.style.maxWidth = '100%';
+        imgElem.style.maxHeight = '100%';
+        imgElem.style.margin = '5% auto auto auto';
+        fullscreen.appendChild(imgElem);
 
-  // Add the full-screen element to the document body
-  document.body.appendChild(fullscreen);
+        // Add the full-screen element to the document body
+        document.body.appendChild(fullscreen);
 
-  // Add a click event listener to the full-screen element to remove it when clicked
-  fullscreen.addEventListener('click', function () {
-    document.body.removeChild(fullscreen);
-  });
-}
+        // Add a click event listener to the full-screen element to remove it when clicked
+        fullscreen.addEventListener('click', function () {
+          document.body.removeChild(fullscreen);
+        });
+      }
 
-  </script>
 
-  <?php
-  // Create database connection
-  try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo " ";
+    </script>
 
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    <?php
+    // Create database connection
+    try {
+      $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+      // set the PDO error mode to exception
+      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      echo " ";
 
-    // select all data from the table
-    $stmt = $conn->query("SELECT * FROM tempdb");
-    $data = $stmt->fetchAll();
-    ?>
-    <table>
-      <tr>
-        <th>
-          <h2 class="z">IMAGE Name</h2>
-        </th>
-        <th>
-          <h2 class="z">CROP</h2>
-        </th>
-        <th>
-          <h2 class="z">MONTH</h2>
-        </th>
-        <th>
-          <h2 class="z">YEAR</h2>
-        </th>
-        <th>
-          <h2 class="z">CROP STAGE</h2>
-        </th>
-        <th>
-          <h2 class="z">PARTS AFFECTED</h2>
-        </th>
-        <th>
-          <h2 class="z">DEVICE</h2>
-        </th>
-        <th>
-          <h2 class="z">SEASON</h2>
-        </th>
-        <th>
-          <h2 class="z">STATE</h2>
-        </th>
-        <th>
-          <h2 class="z">PORD</h2>
-        </th>
-        <th>
-          <h2 class="z">AREA</h2>
-        </th>
-        <th>
-          <h2 class="z">BACKGROUND</h2>
-        </th>
-        <th>
-          <h2 class="z">IMAGEDESC</h2>
-        </th>
-        <th>
-          <h2 class="z">IMAGECONT</h2>
-        </th>
-        <th>
-          <h2 class="z">STAGE</h2>
-        </th>
-        <th>
-          <h2 class="z">IMAGE</h2>
-        </th>
-      </tr>
-      <?php
-      foreach ($data as $row) {
-        echo "<tr>
+      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+      // select all data from the table
+      $stmt = $conn->query("SELECT * FROM tempdb");
+      $data = $stmt->fetchAll();
+      ?>
+      <table>
+        <tr>
+          <th>
+            <h2 class="z">IMAGE Name</h2>
+          </th>
+          <th>
+            <h2 class="z">CROP</h2>
+          </th>
+          <th>
+            <h2 class="z">MONTH</h2>
+          </th>
+          <th>
+            <h2 class="z">YEAR</h2>
+          </th>
+          <th>
+            <h2 class="z">CROP STAGE</h2>
+          </th>
+          <th>
+            <h2 class="z">PARTS AFFECTED</h2>
+          </th>
+          <th>
+            <h2 class="z">DEVICE</h2>
+          </th>
+          <th>
+            <h2 class="z">STAGE</h2>
+          </th>
+          <th rowspan="2">
+            <h2 class="z">IMAGE</h2>
+          </th>
+        </tr>
+        <!-- ************************************************** -->
+        <tr>
+          <th>
+            <h2 class="z">SEASON</h2>
+          </th>
+          <th>
+            <h2 class="z">STATE</h2>
+          </th>
+          <th>
+            <h2 class="z">PORD</h2>
+          </th>
+          <th>
+            <h2 class="z">AREA</h2>
+          </th>
+          <th>
+            <h2 class="z">BACKGROUND</h2>
+          </th>
+          <th>
+            <h2 class="z">IMAGEDESC</h2>
+          </th>
+          <th>
+            <h2 class="z">IMAGECONT</h2>
+          </th>
+          <th>
+            <h2 class="z">Approve</h2>
+          </th>
+        </tr>
+        <?php
+        foreach ($data as $row) {
+          $_SESSION['ID'] = $row['IName'];
+          $id = $_SESSION['ID'];
+          echo "<tr style='margin-top: 1%;'>
                     <td><center>{$row['IName']}</center></td>
                     <td><center>{$row['CROP']}</center></td>
                     <td><center>{$row['MONTH']}</center></td>
@@ -180,6 +194,10 @@ require 'DBinfo.php';
                     <td><center>{$row['CROP STAGE']}</center></td>
                     <td><center>{$row['PARTS-AFFECTED']}</center></td>
                     <td><center>{$row['DEVICE/SHOT']}</center></td>
+                    <td><center>{$row['STAGE']}</center></td>
+                    <td rowspan=" . "2" . "><img src=\"data:image/jpeg;base64," . base64_encode($row['IMAGE']) . "\" onclick=\"openFullscreenImage(this)\" style=\"width: 200px; height: 200px; cursor: pointer;\" /></td>
+              </tr>
+              <tr>
                     <td><center>{$row['SEASON']}</center></td>
                     <td><center>{$row['STATE']}</center></td>
                     <td><center>{$row['PORD']}</center></td>
@@ -187,22 +205,29 @@ require 'DBinfo.php';
                     <td><center>{$row['BACKGROUND']}</center></td>
                     <td><center>{$row['PORDNAME']}</center></td>
                     <td><center>{$row['IMGCONTAINS']}</center></td>
-                    <td><center>{$row['STAGE']}</center></td>
-                    <td><img src=\"data:image/jpeg;base64," . base64_encode($row['IMAGE']) . "\" onclick=\"openFullscreenImage(this)\" style=\"width: 200px; height: 200px; cursor: pointer;\" /></td>
-                  </tr>
-                  <tr>
-                    <td colspan=" . "16" . ">
-                      <center>The New Line of aproving!</center>
+                    <td><center>
+                          <form action='/transferdata.php' method='POST' style='text-align:center;'>
+                            <input type="."hidden"." name="."id"." value=".$id.">
+                            <input type='submit' name='approve' onclick='/transferdata.php' value='Approve Data $id'></input>
+                          </form>
+                        </center>
                     </td>
-                  </tr>
+                    
+              </tr>
+              <tr>
+                <td colspan=" . "9" . ">
+                <br>
+                </td>
+              </tr>
                   ";
-      }
-      echo "</table>";
+        }
+        echo "</table>";
 
-  } catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-  }
-  ?>
+    } catch (PDOException $e) {
+      echo "Connection failed: " . $e->getMessage();
+    }
+    ?>
+  </center>
 </body>
 
 </html>
