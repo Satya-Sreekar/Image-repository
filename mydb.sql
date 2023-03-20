@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 08, 2023 at 07:33 AM
+-- Generation Time: Mar 20, 2023 at 03:15 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -75,20 +75,20 @@ INSERT INTO `castordisease` (`Id`, `PName`, `SCName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `castorpests`
+-- Table structure for table `castorpest`
 --
 
-CREATE TABLE `castorpests` (
+CREATE TABLE `castorpest` (
   `Id` int(25) NOT NULL,
   `PName` varchar(30) NOT NULL,
   `SCName` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `castorpests`
+-- Dumping data for table `castorpest`
 --
 
-INSERT INTO `castorpests` (`Id`, `PName`, `SCName`) VALUES
+INSERT INTO `castorpest` (`Id`, `PName`, `SCName`) VALUES
 (101, 'Red Hairy Catterpillar', 'Amsacta albistriga Walker'),
 (102, 'Castor semilooper', 'Achoea janata Linnaeus'),
 (103, 'Tobacco caterpillar', 'Spodoptera litura (Fabr)'),
@@ -169,29 +169,31 @@ INSERT INTO `healthy` (`crop`, `dt`, `cropstage`, `st`, `part`, `device`, `seaso
 --
 
 CREATE TABLE `images` (
-  `name` int(30) NOT NULL,
-  `size` int(30) NOT NULL,
-  `type` int(30) NOT NULL,
-  `data` longblob NOT NULL
+  `name` varchar(50) NOT NULL,
+  `size` varchar(50) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `data` longblob NOT NULL,
+  `IName` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
 -- --------------------------------------------------------
 
 --
--- Table structure for table `linseeddiseases`
+-- Table structure for table `linseeddisease`
 --
 
-CREATE TABLE `linseeddiseases` (
+CREATE TABLE `linseeddisease` (
   `Id` int(25) NOT NULL,
   `PName` varchar(30) NOT NULL,
   `SCName` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `linseeddiseases`
+-- Dumping data for table `linseeddisease`
 --
 
-INSERT INTO `linseeddiseases` (`Id`, `PName`, `SCName`) VALUES
+INSERT INTO `linseeddisease` (`Id`, `PName`, `SCName`) VALUES
 (501, 'Rust', 'Melompsora lini'),
 (502, 'Alternaria blight', 'Alternaria lini'),
 (503, 'Wilt', 'Fusarium oxysporum spp. Lini'),
@@ -205,63 +207,87 @@ INSERT INTO `linseeddiseases` (`Id`, `PName`, `SCName`) VALUES
 
 CREATE TABLE `moderator` (
   `Uid` varchar(25) NOT NULL,
-  `pd` varchar(20) NOT NULL
+  `pd` varchar(20) NOT NULL,
+  `spz` varchar(15) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `moderator`
 --
 
-INSERT INTO `moderator` (`Uid`, `pd`) VALUES
-('Laasya', 'MLaasya@2004'),
-('Sreekar', 'MSreekar@2003'),
-('superM', 'superM');
+INSERT INTO `moderator` (`Uid`, `pd`, `spz`) VALUES
+('Laasya', 'MLaasya@2004', NULL),
+('Sreekar', 'MSreekar@2003', NULL),
+('super', 'superU', 'sunflowerpest'),
+('superM', 'superM', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pestcastor`
+-- Table structure for table `permdb`
 --
 
-CREATE TABLE `pestcastor` (
-  `Pest` varchar(50) NOT NULL,
-  `SName` varchar(50) NOT NULL,
-  `id` int(3) NOT NULL
+CREATE TABLE `permdb` (
+  `IName` int(10) NOT NULL,
+  `CROP` varchar(20) NOT NULL,
+  `MONTH` varchar(10) NOT NULL,
+  `YEAR` int(4) NOT NULL,
+  `CROP STAGE` varchar(20) NOT NULL,
+  `PARTS-AFFECTED` varchar(15) NOT NULL,
+  `DEVICE/SHOT` varchar(15) NOT NULL,
+  `SEASON` varchar(10) NOT NULL,
+  `STATE` varchar(20) NOT NULL,
+  `PORD` varchar(15) NOT NULL,
+  `AREA` varchar(30) NOT NULL,
+  `BACKGROUND` varchar(15) NOT NULL,
+  `PORDNAME` varchar(50) NOT NULL,
+  `IMGCONTAINS` varchar(15) NOT NULL,
+  `STAGE` varchar(20) NOT NULL,
+  `IMAGE` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `safflowerdisease`
+--
+
+CREATE TABLE `safflowerdisease` (
+  `PName` varchar(30) NOT NULL,
+  `SCName` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `pestcastor`
+-- Dumping data for table `safflowerdisease`
 --
 
-INSERT INTO `pestcastor` (`Pest`, `SName`, `id`) VALUES
-('Red Hairy caterpillar', 'Amsacta albistriga Walker', 1),
-('Castor semilooper', 'Achoea janata Linnaeus', 2),
-('Tobacco caterpillar', 'Spodoptera litura (Fabr)', 3),
-('Shoot and Capsule borer', 'Conogethes (Dichocrosis) punctiferalis', 4),
-('Leaf hopper', 'Empoasca flavescens (Fabr)', 5),
-('Thrips', 'Retithrips syriacus (Mayet)', 6),
-('Whitefly', 'Trialeurodes ricini (Misra)', 7),
-('Serpentine leaf miner', 'Liriomyza trifolii Burgess', 8),
-('Bihar Hairy caterpillar', 'Spilosoma (Diacrisia) obliqua wlk.', 9),
-('Red spider mite', 'Tetranychus telarious L.', 10);
+INSERT INTO `safflowerdisease` (`PName`, `SCName`) VALUES
+('Alternaria blight', 'Alternaria carthami'),
+('Leaf spot', 'Cercospora carthami'),
+('Powdery mildew', 'Erysiphe cichoracearum'),
+('Mosaic', 'Cucumber mosaic virus (CMV)'),
+('Rust', 'Puccinia carthami'),
+('Puccinia carthami', 'Puccinia carthami'),
+('Ramularia leaf spot', 'Ramularia leaf spot'),
+('Root rot', 'Rhizoctonia bataticola');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `safflowerpests`
+-- Table structure for table `safflowerpest`
 --
 
-CREATE TABLE `safflowerpests` (
+CREATE TABLE `safflowerpest` (
   `Id` int(25) NOT NULL,
   `PName` varchar(30) NOT NULL,
   `SCName` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `safflowerpests`
+-- Dumping data for table `safflowerpest`
 --
 
-INSERT INTO `safflowerpests` (`Id`, `PName`, `SCName`) VALUES
+INSERT INTO `safflowerpest` (`Id`, `PName`, `SCName`) VALUES
 (301, 'Capsule borer', 'Helicoverpa armigera'),
 (302, 'Safflower caterpillar', 'Perigaea capensis'),
 (303, 'Capsule fly/Safflower bud fly', 'Acanthiophilus helianthi rossi'),
@@ -271,20 +297,44 @@ INSERT INTO `safflowerpests` (`Id`, `PName`, `SCName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sesamediseases`
+-- Table structure for table `scastorpest`
 --
 
-CREATE TABLE `sesamediseases` (
+CREATE TABLE `scastorpest` (
+  `stages` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `scastorpest`
+--
+
+INSERT INTO `scastorpest` (`stages`) VALUES
+('Egg'),
+('Early instar Larva'),
+('Late instar Larva'),
+('Pupa'),
+('Adult'),
+('Nymph'),
+('Pupae'),
+('Maggots');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sesamedisease`
+--
+
+CREATE TABLE `sesamedisease` (
   `Id` int(25) NOT NULL,
   `PName` varchar(30) NOT NULL,
   `SCName` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `sesamediseases`
+-- Dumping data for table `sesamedisease`
 --
 
-INSERT INTO `sesamediseases` (`Id`, `PName`, `SCName`) VALUES
+INSERT INTO `sesamedisease` (`Id`, `PName`, `SCName`) VALUES
 (401, 'Bacterial blight', 'Xanthomonas campestris pv. ses'),
 (402, 'Cercospora leaf spot ', 'Cercospora sesami, C. sesamico'),
 (403, 'Damping off / Root Rot', 'Macrophomina phaseolina'),
@@ -298,20 +348,20 @@ INSERT INTO `sesamediseases` (`Id`, `PName`, `SCName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sesamepests`
+-- Table structure for table `sesamepest`
 --
 
-CREATE TABLE `sesamepests` (
+CREATE TABLE `sesamepest` (
   `Id` int(25) NOT NULL,
   `PName` varchar(30) NOT NULL,
   `SCName` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `sesamepests`
+-- Dumping data for table `sesamepest`
 --
 
-INSERT INTO `sesamepests` (`Id`, `PName`, `SCName`) VALUES
+INSERT INTO `sesamepest` (`Id`, `PName`, `SCName`) VALUES
 (401, 'Leaf webber', 'Antigastra catalaunalis'),
 (402, 'Gall fly', 'Asphondylia sesami'),
 (403, 'Bud fly', 'Dasineura sesami'),
@@ -320,6 +370,73 @@ INSERT INTO `sesamepests` (`Id`, `PName`, `SCName`) VALUES
 (406, 'Bihar hairy caterpillar', 'Spilosoma obliqua'),
 (407, 'Linseed gall fly', 'Dasyneura sesame '),
 (408, 'Aphids', 'Aphis gossypii');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ssafflowerpest`
+--
+
+CREATE TABLE `ssafflowerpest` (
+  `stages` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ssafflowerpest`
+--
+
+INSERT INTO `ssafflowerpest` (`stages`) VALUES
+('Eggs'),
+('Early instar'),
+('Late instar'),
+('nymph'),
+('wingless adult'),
+('winged adult');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ssesamepest`
+--
+
+CREATE TABLE `ssesamepest` (
+  `stages` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ssesamepest`
+--
+
+INSERT INTO `ssesamepest` (`stages`) VALUES
+('Egg'),
+('Early instar Larva'),
+('Late instar Larva'),
+('Pupa'),
+('Adult'),
+('maggot'),
+('pupa'),
+('Nymph');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ssunflowerpest`
+--
+
+CREATE TABLE `ssunflowerpest` (
+  `stages` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ssunflowerpest`
+--
+
+INSERT INTO `ssunflowerpest` (`stages`) VALUES
+('Larva'),
+('Egg'),
+('Egg mass'),
+('Nymph'),
+('adult');
 
 -- --------------------------------------------------------
 
@@ -353,20 +470,20 @@ INSERT INTO `sunflowerdisease` (`Id`, `PName`, `SCName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `sunflowerpests`
+-- Table structure for table `sunflowerpest`
 --
 
-CREATE TABLE `sunflowerpests` (
+CREATE TABLE `sunflowerpest` (
   `Id` int(25) NOT NULL,
   `PName` varchar(30) NOT NULL,
   `SCName` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `sunflowerpests`
+-- Dumping data for table `sunflowerpest`
 --
 
-INSERT INTO `sunflowerpests` (`Id`, `PName`, `SCName`) VALUES
+INSERT INTO `sunflowerpest` (`Id`, `PName`, `SCName`) VALUES
 (201, 'Capitulum borer', 'Helicoverpa armigera'),
 (202, 'Bihar hairy caterpillar', 'Spilosoma obliqua '),
 (203, 'Tobacco caterpillar', 'Spodoptera litura'),
@@ -379,6 +496,29 @@ INSERT INTO `sunflowerpests` (`Id`, `PName`, `SCName`) VALUES
 (210, 'Green semilooper', 'Green semilooper');
 
 -- --------------------------------------------------------
+
+--
+-- Table structure for table `tempdb`
+--
+
+CREATE TABLE `tempdb` (
+  `IName` int(10) NOT NULL,
+  `CROP` varchar(20) NOT NULL,
+  `MONTH` varchar(10) NOT NULL,
+  `YEAR` int(4) NOT NULL,
+  `CROP STAGE` varchar(20) NOT NULL,
+  `PARTS-AFFECTED` varchar(15) NOT NULL,
+  `DEVICE/SHOT` varchar(15) NOT NULL,
+  `SEASON` varchar(10) NOT NULL,
+  `STATE` varchar(20) NOT NULL,
+  `PORD` varchar(15) NOT NULL,
+  `AREA` varchar(30) NOT NULL,
+  `BACKGROUND` varchar(15) NOT NULL,
+  `PORDNAME` varchar(50) NOT NULL,
+  `IMGCONTAINS` varchar(15) NOT NULL,
+  `STAGE` varchar(20) NOT NULL,
+  `IMAGE` longblob NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Table structure for table `user`
@@ -396,8 +536,6 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`Uid`, `pd`) VALUES
 ('Laasya', 'ULaasya@2004'),
 ('Sreekar', 'USreekar@2003'),
-('nithin', '123'),
-('Shahazaad', 'admin123'),
 ('superU', 'superU');
 
 --
@@ -417,9 +555,9 @@ ALTER TABLE `castordisease`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indexes for table `castorpests`
+-- Indexes for table `castorpest`
 --
-ALTER TABLE `castorpests`
+ALTER TABLE `castorpest`
   ADD PRIMARY KEY (`Id`);
 
 --
@@ -435,9 +573,15 @@ ALTER TABLE `healthy`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `linseeddiseases`
+-- Indexes for table `images`
 --
-ALTER TABLE `linseeddiseases`
+ALTER TABLE `images`
+  ADD PRIMARY KEY (`IName`);
+
+--
+-- Indexes for table `linseeddisease`
+--
+ALTER TABLE `linseeddisease`
   ADD PRIMARY KEY (`Id`);
 
 --
@@ -447,27 +591,27 @@ ALTER TABLE `moderator`
   ADD PRIMARY KEY (`Uid`);
 
 --
--- Indexes for table `pestcastor`
+-- Indexes for table `permdb`
 --
-ALTER TABLE `pestcastor`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `permdb`
+  ADD PRIMARY KEY (`IName`);
 
 --
--- Indexes for table `safflowerpests`
+-- Indexes for table `safflowerpest`
 --
-ALTER TABLE `safflowerpests`
+ALTER TABLE `safflowerpest`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indexes for table `sesamediseases`
+-- Indexes for table `sesamedisease`
 --
-ALTER TABLE `sesamediseases`
+ALTER TABLE `sesamedisease`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indexes for table `sesamepests`
+-- Indexes for table `sesamepest`
 --
-ALTER TABLE `sesamepests`
+ALTER TABLE `sesamepest`
   ADD PRIMARY KEY (`Id`);
 
 --
@@ -477,10 +621,16 @@ ALTER TABLE `sunflowerdisease`
   ADD PRIMARY KEY (`Id`);
 
 --
--- Indexes for table `sunflowerpests`
+-- Indexes for table `sunflowerpest`
 --
-ALTER TABLE `sunflowerpests`
+ALTER TABLE `sunflowerpest`
   ADD PRIMARY KEY (`Id`);
+
+--
+-- Indexes for table `tempdb`
+--
+ALTER TABLE `tempdb`
+  ADD PRIMARY KEY (`IName`);
 
 --
 -- Indexes for table `user`
@@ -503,6 +653,24 @@ ALTER TABLE `crop`
 --
 ALTER TABLE `healthy`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT for table `images`
+--
+ALTER TABLE `images`
+  MODIFY `IName` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
+
+--
+-- AUTO_INCREMENT for table `permdb`
+--
+ALTER TABLE `permdb`
+  MODIFY `IName` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tempdb`
+--
+ALTER TABLE `tempdb`
+  MODIFY `IName` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
