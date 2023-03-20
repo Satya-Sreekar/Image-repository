@@ -117,11 +117,11 @@
                 }
                 elseif($rl=="Moderator")
                 {
-                    header('Location: /Admin.php'); 
+                    header('Location:/display.php'); 
                 }
                 elseif($rl=="Admin")
                 {
-                    header('Location: /Mod.php'); 
+                    header('Location: /manipulate.php'); 
                 }
                                              //IF USER AND PASSWORD MATCH ARE FOUND
             } 
