@@ -259,15 +259,12 @@ require 'DBinfo.php';
                             <input class='butt1' type='submit' name='approve' onclick='/transferdata.php' value='Approve &#x2714;'></input>
                           </form>
 
-                          <form action='/transferdata.php' method='POST' style='text-align:center;'>
+                          <form action='/reject.php' method='POST' style='text-align:center;'>
                             <input type=" . "hidden" . " name=" . "id" . " value=" . $id . ">
-                            <input class='butt2' type='button' onclick=" . "confirmReject()" . " value='Reject &#x2716;'></input>
-                            <input type=" . "submit" . " id=" . "submit-btn" . " name=" . "approve" . " style=" . "display:none;" . "></input>
+                            <input class='butt2' type='submit' onclick=" . "confirmReject()" . " value='Reject &#x2716;'></input>
                           </form>
                       
-                     
-
-                      
+                                           
                           <form action='/transferdata.php' method='POST' style='text-align:center;'>
                             <input type=" . "hidden" . " name=" . "id" . " value=" . $id . ">
                             <input class='butt3' type='submit' name='approve' onclick='/transferdata.php' value='Edit &#x2712;'></input>
