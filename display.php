@@ -150,13 +150,13 @@ require 'DBinfo.php';
             <h2 class="z">CROP STAGE</h2>
           </th>
           <th>
-            <h2 class="z">STAGE</h2>
+            <h2 class="z">STATE</h2>
           </th>
           <th>
             <h2 class="z">DEVICE</h2>
           </th>
           <th>
-            <h2 class="z">PARTS AFFECTED</h2>
+            <h2 class="z">PEST STAGE</h2>
           </th>
           <th rowspan="2">
             <h2 class="z">IMAGE</h2>
@@ -168,7 +168,7 @@ require 'DBinfo.php';
             <h2 class="z">SEASON</h2>
           </th>
           <th>
-            <h2 class="z">STATE</h2>
+            <h2 class="z">PARTS AFFECTED</h2>
           </th>
           <th>
             <h2 class="z">PORD</h2>
