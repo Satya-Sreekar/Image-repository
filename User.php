@@ -17,11 +17,13 @@
             $C = "SELECT * FROM Crop";
         ?>
         <div class='heading'>
+            <button>&#8249;</button>
         <center>
             <h1>
                 Upload Crop Details
             </h1>
         </center>
+        <button>Logout</button>
         </div>
         <div id="box">
             <form action="/UPro.php" method="POST">
