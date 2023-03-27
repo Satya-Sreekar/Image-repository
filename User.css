@@ -35,17 +35,35 @@ body{
     margin-left: 0%;
     margin-right: 0%;
 }
-.heading
-{
-    border: 2px solidrgba(72,172,76,251);
-    background-color:rgba(74,174,78,253);
+.heading {
+    display: flex; /* add this */
+    justify-content: space-between; /* add this */
+    border: 2px solid rgba(72,172,76,251);
+    background-color: rgba(74,174,78,253);
     margin-top: 0%;
     padding-top: 5px;
     padding-right: 90px;
     padding-bottom: 5px;
     padding-left: 90px;
     box-shadow: 0 10px 20px 0 rgba(0,0,0,0.15);
-}
+  }
+  
+button {
+    background-color:rgb(54, 157, 63);
+   padding-left:2%;
+   padding-right:2%;
+   color: white;
+   font-size: larger;
+   border: none;
+   transition: border 1ms;
+  }
+  button:hover
+  {
+    opacity: 0.7;
+  }
+  button:active{
+    opacity: 0.5;
+  }
 th,td
 {
     padding-left:1%;
