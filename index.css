@@ -10,7 +10,6 @@ html
     font-weight: bold;
     color: rgb(5, 151, 22);
     margin-bottom: 8%;
-
    }
 
 body {
@@ -98,5 +97,9 @@ input[type=submit]
     }
 input[type=submit]:hover
     {
-    opacity: 0.5;
+    opacity: 0.9;
     }
+    input[type=submit]:active
+    {
+    opacity: 0.8;
+    }    
