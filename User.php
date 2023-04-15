@@ -23,7 +23,7 @@
                 Upload Crop Details
             </h1>
         </center>
-        <button>Logout</button>
+        <button onclick="window.location.href = 'logout.php';">Logout</button>
         </div>
         <div id="box">
             <form action="/UPro.php" method="POST">
