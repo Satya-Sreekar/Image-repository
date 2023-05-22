@@ -34,10 +34,10 @@ body{
     box-shadow: 0 10px 20px 0 rgba(0,0,0,0.15);
 }
 
-    body{
+body{
         background:cornsilk;
     }
-    button {
+button {
   position: relative;
   background: #444;
   color: #fff;
@@ -271,9 +271,9 @@ button:hover i::after {
   <!-- <button style="--clr:#1F51FF"><span>Button</span><i></i></button> -->
   <button type="submit" formaction="manipulatedata.php"style="--clr:#39FF14"><span>MANIPULATE CROP DATA</span><i></i></button>
   <!-- <button style="--clr:#BC13FE"><span>Button</span><i></i></button> -->
-  <button style="--clr:#39FF14"><span>VIEW APPROVED ENTRIES</span><i></i></button>
+  <button type="submit" formaction="AdminDisplay.php" style="--clr:#39FF14"><span>VIEW APPROVED ENTRIES</span><i></i></button>
   <!-- <button style="--clr:#E7EE4F"><span>Button</span><i></i></button> -->
-  <button type="submit" formaction="insertcredentials.php"style="--clr:#39FF14"><span>Button</span><i></i></button>
+  <button type="submit" formaction="download.php"style="--clr:#39FF14"><span>Download All</span><i></i></button>
   <!-- <button style="--clr:#FF1493"><span>Button</span><i></i></button> -->
   <!-- <button style="--clr:#CCFF00"><span>Button</span><i></i></button> -->
 </form>
