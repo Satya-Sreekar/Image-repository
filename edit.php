@@ -1,8 +1,7 @@
 <html>
-
 <head>
     <title>
-        Submition Form
+        Edit Form
     </title>
     <link rel="stylesheet" href="User.css">
 </head>
@@ -14,18 +13,24 @@
         header("location:index.php");
         exit;
     }
+    $_SESSION['id'] =  $_POST["id"];
+    $id=$_SESSION['id'];
     require('DBinfo.php');
     $C = "SELECT * FROM Crop";
     ?>
+    <div class='Edit'>
     <div class='heading'>
         <div></div>
         <center>
             <h1>
-                Upload Crop Details
+                Edit Crop Details of Image:
+                <?php
+                echo $_SESSION['id'];
+                ?>
             </h1>
+            <h3>Note: Scroll down to view old Details</h3>
         </center>
         <button onclick="window.location.href = 'logout.php';">Logout</button>
-    </div>
     </div>
     <div id="box">
         <form action="/UPro.php" method="POST">
@@ -240,5 +245,147 @@
         </form>
     </div>
 </body>
+<footer>
+<div class='Table'>
+    <?php
+    // Create database connection
+    try {
+      $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+      // set the PDO error mode to exception
+      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      echo " ";
+
+      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+      // select all data from the table
+      $stmt = $conn->query("SELECT * FROM tempdb where IName=$id ");
+      $data = $stmt->fetchAll();
+      ?>
+      <table border=1>
+        <tr>
+          <th>
+            <h2 class="z">CROP</h2>
+          </th>
+          <th>
+            <h2 class="z">MONTH</h2>
+          </th>
+          <th>
+            <h2 class="z">YEAR</h2>
+          </th>
+          <th>
+            <h2 class="z">CROP STAGE</h2>
+          </th>
+          <th>
+            <h2 class="z">STATE</h2>
+          </th>
+          <th>
+            <h2 class="z">DEVICE</h2>
+          </th>
+          <th>
+            <h2 class="z">PEST STAGE</h2>
+          </th>
+        </tr>
+        <!-- ************************************************** -->
+        <tr>
+          <th>
+            <h2 class="z">SEASON</h2>
+          </th>
+          <th>
+            <h2 class="z">PARTS AFFECTED</h2>
+          </th>
+          <th>
+            <h2 class="z">PORD</h2>
+          </th>
+          <th>
+            <h2 class="z">AREA</h2>
+          </th>
+          <th>
+            <h2 class="z">BACKGROUND</h2>
+          </th>
+          <th>
+            <h2 class="z">IMAGEDESC</h2>
+          </th>
+          <th>
+            <h2 class="z">IMAGECONT</h2>
+          </th>
+        </tr>
+        <?php
+        foreach ($data as $row) {
+          $_SESSION['ID'] = $row['IName'];
+          $id = $_SESSION['ID'];
+          echo "<tr style='margin-top: 1%;'>
+                    <td><center>{$row['CROP']}</center></td>
+                    <td><center>{$row['MONTH']}</center></td>
+                    <td><center>{$row['YEAR']}</center></td>
+                    <td><center>{$row['CROP STAGE']}</center></td>
+                    <td><center>{$row['PARTS-AFFECTED']}</center></td>
+                    <td><center>{$row['DEVICE/SHOT']}</center></td>
+                    <td><center>{$row['STAGE']}</center></td>
+              </tr>
+              <style>
+                  .butt1{
+                    background-color:white;
+                    padding:3%;
+                    border-radius:10px;
+                    margin-bottom:15px;
+                  }
+                  .butt1:hover{
+                    background-color:green;
+                    color:white;
+                  }
+                  .butt1:active{
+                    opacity:0.7;
+                  }
+                  .butt2{
+                    background-color:white;
+                    padding:3%;
+                    border-radius:10px;
+                    margin-bottom:15px;
+                  }
+                  .butt2:hover{
+                    background-color:red;
+                    color:white;
+                  }
+                  .butt2:active{
+                    opacity:0.7;
+                  }
+                  .butt3{
+                    background-color:white;
+                    padding:3%;
+                    border-radius:10px;
+                    margin-bottom:15px;
+                  }
+                  .butt3:hover{
+                    background-color:#FFD700;
+                    color:cornsilk;
+                  }
+                  .butt3:active{
+                    opacity:0.7;
+                  }
+              </style>
+              <tr>
+                    <td><center>{$row['SEASON']}</center></td>
+                    <td><center>{$row['STATE']}</center></td>
+                    <td><center>{$row['PORD']}</center></td>
+                    <td><center>{$row['AREA']}</center></td>
+                    <td><center>{$row['BACKGROUND']}</center></td>
+                    <td><center>{$row['PORDNAME']}</center></td>
+                    <td><center>{$row['IMGCONTAINS']}</center></td>
+              </tr>
+              <tr>
+                <td colspan=" . "9" . ">
+                <br>
+                </td>
+              </tr>
+                  ";
+        }
+        echo "</table>";
+
+    } catch (PDOException $e) {
+      echo "Connection failed: " . $e->getMessage();
+    }
+    ?>
+    </div>
+</footer>
 
 </html>

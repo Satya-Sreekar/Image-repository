@@ -10,7 +10,7 @@ require 'DBinfo.php';
 <html>
 
 <head>
-  <title>Aprover</title>
+  <title>Aproved Entries</title>
   <style>
     html {
       background-color: cornsilk;
@@ -85,10 +85,10 @@ button:active {
   </style>
   <meta charset="UTF-8">
   <div class='heading'>
-    <div></div>
+        <button>&#8249;</button>
         <center>
       <h1 class="h">
-        Aprover
+        Aproved Entries
       </h1>
       </center>
         <button onclick="window.location.href = 'logout.php';">Logout</button>
@@ -122,7 +122,7 @@ button:active {
         imgElem.style.display = 'block';
         imgElem.style.maxWidth = '100%';
         imgElem.style.maxHeight = '100%';
-        imgElem.style.margin = 'auto auto auto auto';
+        imgElem.style.margin = '5% auto auto auto';
         fullscreen.appendChild(imgElem);
 
         // Add the full-screen element to the document body
@@ -148,7 +148,7 @@ button:active {
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
       // select all data from the table
-      $stmt = $conn->query("SELECT * FROM tempdb");
+      $stmt = $conn->query("SELECT * FROM permdb");
       $data = $stmt->fetchAll();
       ?>
       <table>
@@ -284,9 +284,9 @@ button:active {
                           </form>
                       
                                            
-                          <form action='/edit.php' method='POST' style='text-align:center;'>
+                          <form action='/transferdata.php' method='POST' style='text-align:center;'>
                             <input type=" . "hidden" . " name=" . "id" . " value=" . $id . ">
-                            <input class='butt3' type='submit' name='edit' onclick='/edit.php' value='Edit &#x2712;'></input>
+                            <input class='butt3' type='submit' name='approve' onclick='/transferdata.php' value='Edit &#x2712;'></input>
                           </form>
                         </center>
                     </td>
@@ -307,4 +307,5 @@ button:active {
     ?>
   </center>
 </body>
+
 </html>

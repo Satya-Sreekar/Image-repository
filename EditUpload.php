@@ -95,7 +95,7 @@ if (isset($_FILES['images'])) {
     $data = mysqli_real_escape_string($conn, $data);
 
     // Insert the image into the database               
-    $sql = "INSERT INTO tempdb (`CROP`, `MONTH`, `YEAR`, `CROP STAGE`,`PARTS-AFFECTED`, `DEVICE/SHOT`, `SEASON`, `STATE`, `PORD`, `AREA`, `BACKGROUND`, `PORDNAME`, `IMGCONTAINS`, `STAGE`, `IMAGE`)
+    $sql = "INSERT INTO permdb (`CROP`, `MONTH`, `YEAR`, `CROP STAGE`,`PARTS-AFFECTED`, `DEVICE/SHOT`, `SEASON`, `STATE`, `PORD`, `AREA`, `BACKGROUND`, `PORDNAME`, `IMGCONTAINS`, `STAGE`, `IMAGE`)
                        VALUES ('$crop' ,'$month','$year','$cs'       ,'$part'          ,'$device'     ,'$season','$state','$pord','$area','$bg'       ,'$pordname','$imagecont','$stage', '$data')";
     mysqli_query($conn, $sql);
   }

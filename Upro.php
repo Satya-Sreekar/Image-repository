@@ -19,7 +19,14 @@ $_SESSION['part'] = $_POST["state"];
 $_SESSION['device'] = $_POST["device"];
 $_SESSION['season'] = $_POST["season"];
 $_SESSION['Area'] = $_POST["Area"];
-header("location:imup.php");
+if(!isset($_SESSION['id']))
+{
+    header("location:imup.php");
+}
+else
+{
+    header("location:EditUplod.php");
+}
 // switch ($_SESSION['PORD'])
 // {
 //     case "Healthy":

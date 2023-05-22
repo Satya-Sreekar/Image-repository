@@ -8,7 +8,7 @@ $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 // Query to retrieve all images from the table
-$sql = "SELECT IName,IMAGE FROM tempdb";
+$sql = "SELECT IName,IMAGE FROM permdb";
 
 // Prepare the SQL query
 $stmt = $conn->prepare($sql);
