@@ -11,7 +11,7 @@
 <div class='heading'>
   <img src="1car.png" alt=""height=5% width=5%>
   <center>
-  <h1 class='hh'>OilSeeds Pests and Diseases Image Repository System V<span class='v'>2.0</span></h1>
+  <h1 class='hh'>Oil Seeds Pests and Diseases Image Repository System V<span class='v'>2.0</span></h1>
   </center>
   <img src="iior-logo.jpg" alt=""height=5% width=5%>
 </div>
@@ -21,15 +21,15 @@
 <form action="/validation.php" method="POST">
   
   <label for="User"><h3>User Name:</h3></label>
-  <input type="text" id="UserName" name="UserName" value="" placeholder="Enter your User Name">
+  <input type="text" id="UserName" name="UserName" value="" placeholder="Enter your User Name" required>
   
   <label for="password"><h3>Password:</h3></label>
-  <input type="password" id="password" name="password" value="" placeholder="Enter your Password">
+  <input type="password" id="password" name="password" value="" placeholder="Enter your Password" required>
   
   <label for="role"><h3>Role:</h3></label>
   <select id="role" name="role">
         <option value="User">User</option>
-        <option value="Moderator">Moderator</option>
+        <option value="Moderator">Approver</option>
         <option value="Admin">Admin</option>
   </select><br>
   <input type="submit" value="Submit">
