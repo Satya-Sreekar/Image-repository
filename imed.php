@@ -37,24 +37,14 @@
         <button onclick="window.location.href = 'logout.php';">Logout</button>
     </div>
     <div id="box">
-        <form action="upload.php" method="post" enctype="multipart/form-data">
+        <form action="Editupload.php" method="post" enctype="multipart/form-data">
             <table>
                 <tr>
-                    <th>
-                        Image Upload
-                    </th>
                     <th align="center">
                         Background
                     </th>
                 </tr>
                 <tr>
-                    <td>
-                        <div class="file-upload">
-                            <input type="file" accept="image/png, image/jpeg, image/jpg" name="images[]" multiple required onchange="updateFileName()" id="fileInput" >
-                            <label for="fileInput" class="file-select-button" id="fileName"></label>
-                        </div>
-                        <div id="file-selected"></div> <!-- Added div to display selected file names -->
-                    </td>
                     <td>
                         <select name="bg" id="bg">
                             <option value="Lab">Lab</option>
@@ -136,26 +126,6 @@
             <input type="submit" value="Upload Images">
         </form>
     </div>
-
-    <script>
-        function triggerFileInput() {
-            document.getElementById('fileInput').click();
-        }
-
-        function updateFileName() {
-            var fileInput = document.getElementById('fileInput');
-            var fileNameContainer = document.getElementById('fileName');
-            var fileSelectedContainer = document.getElementById('file-selected');
-            fileNameContainer.textContent = '';
-
-            // Display selected file names
-            var fileNames = '';
-            for (var i = 0; i < fileInput.files.length; i++) {
-                fileNames += fileInput.files[i].name + '<br>';
-            }
-            fileSelectedContainer.innerHTML = fileNames;
-        }
-    </script>
 </body>
 
 </html>

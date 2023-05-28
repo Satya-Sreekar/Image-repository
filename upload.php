@@ -7,7 +7,6 @@ if (!isset($_SESSION['UN'])) {
 // Connect to the database
 require('DBinfo.php');
 //Fetching Data from imup.php
-$_SESSION['bg'] = $_POST['bg'];
 $_SESSION['Efr'] = (@$_POST['Efr']);
 $_SESSION['Desc'] = @$_POST['Desc'];
 $_SESSION['bg'] = $_POST['bg'];
@@ -33,7 +32,7 @@ if ($_SESSION['PORD'] != 'pest') {
   $stage = "N/A";
 } else {
   $imagecont = $_SESSION['Desc'];
-  $stage = $_SESSION['Stage'];
+  $stage = urldecode($_SESSION['Stage']);
 }
 // Check if the form has been submitted
 if (isset($_FILES['images'])) {

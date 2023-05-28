@@ -113,15 +113,15 @@
                 $_SESSION['Role'] = $rl;
                 if($rl=="User")
                 {
-                    header('Location: /User.php'); 
+                    header('Location:User.php'); 
                 }
                 elseif($rl=="Moderator")
                 {
-                    header('Location:/display.php'); 
+                    header('Location:display.php'); 
                 }
                 elseif($rl=="Admin")
                 {
-                    header('Location: /manipulate.php'); 
+                    header('Location: manipulate.php'); 
                 }
                                              //IF USER AND PASSWORD MATCH ARE FOUND
             } 

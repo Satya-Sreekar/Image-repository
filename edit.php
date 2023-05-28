@@ -20,7 +20,7 @@
     ?>
     <div class='Edit'>
     <div class='heading'>
-        <div></div>
+    <button onclick="window.location.href ='Display.php';">&#8249; Go Back</button>
         <center>
             <h1>
                 Edit Crop Details of Image:
@@ -33,7 +33,7 @@
         <button onclick="window.location.href = 'logout.php';">Logout</button>
     </div>
     <div id="box">
-        <form action="/UPro.php" method="POST">
+        <form action="Upro.php" method="POST">
             <table align="center" cellpadding="3px">
                 <tr>
                     <td colspan="2" align="center">

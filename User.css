@@ -108,3 +108,50 @@ input[type=submit]:active {
     border-radius: 10px;
     box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.15);
 }
+
+/* Media Queries for Mobile Devices */
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 1.2em;
+    }
+
+    select {
+        padding: 0.5em;
+    }
+
+    h2, h3 {
+        font-size: 0.8em;
+    }
+
+    .heading {
+        padding: 0.33em 5%;
+    }
+
+    button {
+        padding: 0.2em 1%;
+        font-size: 0.8em;
+    }
+
+    th, td {
+        padding: 0.1em 0.5%;
+    }
+
+    input[type=submit] {
+        padding: 0.4em 3%;
+        margin-top: 2%;
+    }
+
+    .l {
+        width: 100%;
+    }
+
+    #box {
+        width: 90%;
+        padding: 5%;
+        padding-top: 10px;
+        padding-bottom: 5%;
+        padding-left: 1em;
+        padding-right: 1em;
+        margin: 2% auto;
+    }
+}

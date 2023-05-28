@@ -28,7 +28,7 @@
     </div>
     </div>
     <div id="box">
-        <form action="/UPro.php" method="POST">
+        <form action="UPro.php" method="POST">
             <table align="center" cellpadding="3px">
                 <tr>
                     <td colspan="2" align="center">
@@ -223,6 +223,7 @@
                             <option value="pest">Pest</option>
                             <option value="disease">Disease</option>
                             <option value="NaturalEnemy">Natural Enemy</option>
+                            <option value="Nutrient Defficency">Nutrient Defficency</option>
                             <option value="healthy">Healthy</option>
                         </select>
                     </td>

@@ -22,13 +22,13 @@ try {
 
 <head>
     <title>Approved Entries</title>
-    <link rel="stylesheet" href="AD.css">
+    <link rel="stylesheet" href="AdminDisplay.css">
     <meta charset="UTF-8">
 </head>
 
 <body>
     <div class="heading">
-        <button onclick="window.location.href ='manipulate.php';">&#8249;</button>
+        <button onclick="window.location.href ='manipulate.php';">&#8249; Go Back</button>
         <center>
             <h1 class="h">Approved Entries</h1>
         </center>
@@ -86,7 +86,7 @@ try {
                 <td><center><?= $row['IMGCONTAINS'] ?></center></td>
                 <td>
                     <center>
-                        <form action="/downloadone.php" method="POST">
+                        <form action="downloadone.php" method="POST">
                             <input type="hidden" name="id" value="<?= $id ?>">
                             <input class="butt1" type="submit" name="download" value="Download &#x2913;">
                         </form>

@@ -19,12 +19,4 @@ $_SESSION['part'] = $_POST["state"];
 $_SESSION['device'] = $_POST["device"];
 $_SESSION['season'] = $_POST["season"];
 $_SESSION['Area'] = $_POST["Area"];
-if(!isset($_SESSION['id']))
-{
-    header("location:imup.php");
-}
-else
-{
-    header("location:imed.php");
-}
- ?>
+?>
