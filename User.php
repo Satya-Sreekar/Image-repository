@@ -208,7 +208,7 @@
                 <tr>
                     <td colspan="2" align="center">
                         <h3>
-                            Pest Or Disease
+                            Plant Health Status
                         </h3>
                     </td>
                     <td colspan="2" align="center">
@@ -223,7 +223,7 @@
                             <option value="pest">Pest</option>
                             <option value="disease">Disease</option>
                             <option value="NaturalEnemy">Natural Enemy</option>
-                            <option value="Nutrient Defficency">Nutrient Defficency</option>
+                            <option value="Nutrient Defficiency">Nutrient Defficency</option>
                             <option value="healthy">Healthy</option>
                         </select>
                     </td>
