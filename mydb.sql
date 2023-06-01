@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 20, 2023 at 03:15 PM
+-- Generation Time: Jun 01, 2023 at 05:07 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -37,7 +37,9 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`Uid`, `pd`) VALUES
+('admin', 'admin'),
 ('Laasya', 'ALaasya@2004'),
+('Shahazaad', 'Shahazaad'),
 ('Sreekar', 'ASreekar@2003'),
 ('superA', 'superA');
 
@@ -125,61 +127,6 @@ INSERT INTO `crop` (`Id`, `CName`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `healthy`
---
-
-CREATE TABLE `healthy` (
-  `crop` varchar(20) NOT NULL,
-  `dt` date NOT NULL,
-  `cropstage` varchar(30) NOT NULL,
-  `st` varchar(30) NOT NULL,
-  `part` varchar(30) NOT NULL,
-  `device` varchar(30) NOT NULL,
-  `season` varchar(30) NOT NULL,
-  `ID` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `healthy`
---
-
-INSERT INTO `healthy` (`crop`, `dt`, `cropstage`, `st`, `part`, `device`, `season`, `ID`) VALUES
-('Safflower', '2023-02-16', 'Seed Setting', 'Capsules', 'Telangana', 'Camera-Long', 'Rabi', 8),
-('Safflower', '2023-02-16', 'Seed Setting', 'Capsules', 'Telangana', 'Camera-Long', 'Rabi', 9),
-('Safflower', '2023-02-16', 'Seed Setting', 'Capsules', 'Telangana', 'Camera-Long', 'Rabi', 10),
-('Safflower', '2023-02-16', 'Seed Setting', 'Capsules', 'Telangana', 'Camera-Long', 'Rabi', 11),
-('Safflower', '2023-02-16', 'Seed Setting', 'Capsules', 'Telangana', 'Camera-Long', 'Rabi', 12),
-('Safflower', '2023-02-16', 'Seed Setting', 'Capsules', 'Telangana', 'Camera-Long', 'Rabi', 13),
-('Castor', '2021-02-01', 'Rosette', 'Flowers', 'Goa', 'Camera-CloseUp', 'Rabi', 14),
-('Sesame', '2023-02-07', 'Germination', 'Leaves', 'Goa', 'Camera-Long', 'Summer', 15),
-('Safflower', '2023-02-16', 'Vegetative', 'Capsules', 'Telangana', 'Mobile-Long', 'Rabi', 16),
-('Castor', '0000-00-00', 'Germination', 'Leaves', 'Andhra Pradesh', 'Camera-Long', 'Kharif', 17),
-('Castor', '2023-03-09', 'Germination', 'Leaves', 'Andhra Pradesh', 'Camera-Long', 'Kharif', 18),
-('Castor', '2023-03-14', 'Germination', 'Leaves', 'Andhra Pradesh', 'Camera-Long', 'Kharif', 19),
-('Castor', '2023-03-21', 'Germination', 'Leaves', 'Andhra Pradesh', 'Camera-Long', 'Kharif', 20),
-('Castor', '2023-03-08', 'Germination', 'Leaves', 'Andhra Pradesh', 'Camera-Long', 'Kharif', 21),
-('Castor', '2023-03-15', 'Germination', 'Leaves', 'Andhra Pradesh', 'Camera-Long', 'Kharif', 22),
-('Castor', '2023-03-15', 'Germination', 'Leaves', 'Andhra Pradesh', 'Camera-Long', 'Kharif', 23),
-('Castor', '2023-03-15', 'Germination', 'Leaves', 'Andhra Pradesh', 'Camera-Long', 'Kharif', 24);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `images`
---
-
-CREATE TABLE `images` (
-  `name` varchar(50) NOT NULL,
-  `size` varchar(50) NOT NULL,
-  `type` varchar(50) NOT NULL,
-  `data` longblob NOT NULL,
-  `IName` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- --------------------------------------------------------
-
---
 -- Table structure for table `linseeddisease`
 --
 
@@ -216,10 +163,40 @@ CREATE TABLE `moderator` (
 --
 
 INSERT INTO `moderator` (`Uid`, `pd`, `spz`) VALUES
+('admin', 'admin', 'castordisease'),
 ('Laasya', 'MLaasya@2004', NULL),
+('mod', 'mod', 'sesamepest'),
 ('Sreekar', 'MSreekar@2003', NULL),
-('super', 'superU', 'sunflowerpest'),
 ('superM', 'superM', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `nutrients`
+--
+
+CREATE TABLE `nutrients` (
+  `name` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `nutrients`
+--
+
+INSERT INTO `nutrients` (`name`) VALUES
+('Nitrogen'),
+('Phosphorus'),
+('Potassium'),
+('Magnesium'),
+('Manganese'),
+('Calcium'),
+('Sulfur'),
+('Boron'),
+('Zinc'),
+('Iron'),
+('Copper'),
+('Molybdenum'),
+('Chlorine');
 
 -- --------------------------------------------------------
 
@@ -511,7 +488,7 @@ CREATE TABLE `tempdb` (
   `DEVICE/SHOT` varchar(15) NOT NULL,
   `SEASON` varchar(10) NOT NULL,
   `STATE` varchar(20) NOT NULL,
-  `PORD` varchar(15) NOT NULL,
+  `PORD` varchar(30) NOT NULL,
   `AREA` varchar(30) NOT NULL,
   `BACKGROUND` varchar(15) NOT NULL,
   `PORDNAME` varchar(50) NOT NULL,
@@ -519,6 +496,8 @@ CREATE TABLE `tempdb` (
   `STAGE` varchar(20) NOT NULL,
   `IMAGE` longblob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `user`
@@ -534,7 +513,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`Uid`, `pd`) VALUES
+('admin', 'admin'),
 ('Laasya', 'ULaasya@2004'),
+('Shahazaad', 'Shahazaad'),
 ('Sreekar', 'USreekar@2003'),
 ('superU', 'superU');
 
@@ -565,18 +546,6 @@ ALTER TABLE `castorpest`
 --
 ALTER TABLE `crop`
   ADD PRIMARY KEY (`Id`);
-
---
--- Indexes for table `healthy`
---
-ALTER TABLE `healthy`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `images`
---
-ALTER TABLE `images`
-  ADD PRIMARY KEY (`IName`);
 
 --
 -- Indexes for table `linseeddisease`
@@ -649,18 +618,6 @@ ALTER TABLE `crop`
   MODIFY `Id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `healthy`
---
-ALTER TABLE `healthy`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
---
--- AUTO_INCREMENT for table `images`
---
-ALTER TABLE `images`
-  MODIFY `IName` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
-
---
 -- AUTO_INCREMENT for table `permdb`
 --
 ALTER TABLE `permdb`
@@ -670,7 +627,7 @@ ALTER TABLE `permdb`
 -- AUTO_INCREMENT for table `tempdb`
 --
 ALTER TABLE `tempdb`
-  MODIFY `IName` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `IName` int(10) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
