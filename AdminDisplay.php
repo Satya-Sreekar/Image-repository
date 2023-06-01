@@ -49,7 +49,7 @@ try {
         <tr>
             <th><h2 class="z">SEASON</h2></th>
             <th><h2 class="z">PARTS AFFECTED</h2></th>
-            <th><h2 class="z">PORD</h2></th>
+            <th><h2 class="z">HEALTH STATE</h2></th>
             <th><h2 class="z">AREA</h2></th>
             <th><h2 class="z">BACKGROUND</h2></th>
             <th><h2 class="z">IMAGEDESC</h2></th>
