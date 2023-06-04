@@ -92,11 +92,10 @@ try {
                 value='Approve &#x2714;'></input>
             </form>
 
-            <form action='reject.php' method='POST' style='text-align:center;'>
+            <form action="reject.php" method="POST" onsubmit="return confirm('Are you sure you want to delete this?')">
               <input type=hidden name='id' value="<?= $id ?>">
-              <input class='butt2' type='submit' onclick=confirmReject() value='Reject &#x2716;'></input>
+              <input class='butt2' type='submit' onclick="return confirm(\'Are you sure you want to delete this?\')" value='Reject &#x2716;'></input>
             </form>
-
 
             <form action='edit.php' method='POST' style='text-align:center;'>
               <input type=hidden name='id' value="<?= $id ?>">
@@ -114,14 +113,7 @@ try {
     <?php endforeach; ?>
   </table>
   <script>
-    function confirmReject() {
-      var result = confirm("Are you sure you want to reject this?");
-      if (result) {
-        document.getElementById('submit-btn').click();
-      }
-    }
-
-    function openFullscreenImage(img) {
+       function openFullscreenImage(img) {
       var fullscreen = document.createElement('div');
       fullscreen.style.position = 'fixed';
       fullscreen.style.top = 0;
