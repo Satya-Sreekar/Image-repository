@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 01, 2023 at 05:07 PM
+-- Generation Time: Jun 06, 2023 at 04:39 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -205,6 +205,7 @@ INSERT INTO `nutrients` (`name`) VALUES
 --
 
 CREATE TABLE `permdb` (
+  `User` varchar(50) NOT NULL,
   `IName` int(10) NOT NULL,
   `CROP` varchar(20) NOT NULL,
   `MONTH` varchar(10) NOT NULL,
@@ -479,6 +480,7 @@ INSERT INTO `sunflowerpest` (`Id`, `PName`, `SCName`) VALUES
 --
 
 CREATE TABLE `tempdb` (
+  `User` varchar(50) NOT NULL,
   `IName` int(10) NOT NULL,
   `CROP` varchar(20) NOT NULL,
   `MONTH` varchar(10) NOT NULL,
