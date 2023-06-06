@@ -1,6 +1,10 @@
 html {
     background-color: cornsilk;
 }
+h1
+{
+    padding-left: 13vh;
+}
 .filters {
     display: flex;
     justify-content: center;
