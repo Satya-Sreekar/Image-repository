@@ -7,8 +7,15 @@ if (!isset($_SESSION['UN'])) {
 require 'DBinfo.php';
 
 // Get filter values from query parameters or set default values
+$userFilter = isset($_GET['user']) ? $_GET['user'] : '';
 $cropFilter = isset($_GET['crop']) ? $_GET['crop'] : '';
+$monthFilter = isset($_GET['month']) ? $_GET['month'] : '';
+$yearFilter = isset($_GET['year']) ? $_GET['year'] : '';
+$stageFilter = isset($_GET['stage']) ? $_GET['stage'] : '';
+$partsFilter = isset($_GET['parts']) ? $_GET['parts'] : '';
+$seasonFilter = isset($_GET['season']) ? $_GET['season'] : '';
 $stateFilter = isset($_GET['state']) ? $_GET['state'] : '';
+$pordFilter = isset($_GET['pord']) ? $_GET['pord'] : '';
 
 try {
   $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -16,20 +23,63 @@ try {
 
   // Build the SQL query with filters
   $sql = "SELECT * FROM tempdb WHERE 1=1";
+  
+  if (!empty($userFilter)) {
+    $sql .= " AND `User` = :user";
+  }
   if (!empty($cropFilter)) {
     $sql .= " AND `CROP` = :crop";
+  }
+  if (!empty($monthFilter)) {
+    $sql .= " AND `MONTH` = :month";
+  }
+  if (!empty($yearFilter)) {
+    $sql .= " AND `YEAR` = :year";
+  }
+  if (!empty($stageFilter)) {
+    $sql .= " AND `CROP STAGE` = :stage";
+  }
+  if (!empty($partsFilter)) {
+    $sql .= " AND `PARTS-AFFECTED` = :parts";
+  }
+  if (!empty($seasonFilter)) {
+    $sql .= " AND `SEASON` = :season";
   }
   if (!empty($stateFilter)) {
     $sql .= " AND `STATE` = :state";
   }
+  if (!empty($pordFilter)) {
+    $sql .= " AND `PORD` = :pord";
+  }
 
   // Prepare the statement and bind filter values
   $stmt = $conn->prepare($sql);
+  if (!empty($userFilter)) {
+    $stmt->bindValue(':user', $userFilter);
+  }
   if (!empty($cropFilter)) {
     $stmt->bindValue(':crop', $cropFilter);
   }
+  if (!empty($monthFilter)) {
+    $stmt->bindValue(':month', $monthFilter);
+  }
+  if (!empty($yearFilter)) {
+    $stmt->bindValue(':year', $yearFilter);
+  }
+  if (!empty($stageFilter)) {
+    $stmt->bindValue(':stage', $stageFilter);
+  }
+  if (!empty($partsFilter)) {
+    $stmt->bindvalue(':parts', $partsFilter);
+  }
+  if (!empty($seasonFilter)) {
+    $stmt->bindvalue(':season', $seasonFilter);
+  }
   if (!empty($stateFilter)) {
     $stmt->bindValue(':state', $stateFilter);
+  }
+  if (!empty($pordFilter)) {
+    $stmt->bindValue(':pord', $pordFilter);
   }
 
   $stmt->execute();
@@ -103,6 +153,34 @@ try {
         </select>
       </div>
       <div>
+        <label for="year-filter">YEAR:</label>
+        <select id="year-filter" name="year">
+          <option value="">All</option>
+          <?php
+          $yearQuery = $conn->query("SELECT DISTINCT `YEAR` FROM `tempdb`");
+          $yearData = $yearQuery->fetchAll();
+          foreach ($yearData as $year) {
+            $selected = ($_GET['year'] ?? '') == $year['YEAR'] ? 'selected' : '';
+            echo "<option value=\"{$year['YEAR']}\" $selected>{$year['YEAR']}</option>";
+          }
+          ?>
+        </select>
+      </div>
+      <div>
+        <label for="stage-filter">CROP STAGE:</label>
+        <select id="stage-filter" name="stage">
+          <option value="">All</option>
+          <?php
+          $stageQuery = $conn->query("SELECT DISTINCT `CROP STAGE` FROM `tempdb`");
+          $stageData = $stageQuery->fetchAll();
+          foreach ($stageData as $stage) {
+            $selected = ($_GET['stage'] ?? '') == $stage['CROP STAGE'] ? 'selected' : '';
+            echo "<option value=\"{$stage['CROP STAGE']}\" $selected>{$stage['CROP STAGE']}</option>";
+          }
+          ?>
+        </select>
+      </div>
+      <div>
         <label for="parts-filter">PARTS AFFECTED:</label>
         <select id="parts-filter" name="parts">
           <option value="">All</option>
@@ -117,6 +195,20 @@ try {
         </select>
       </div>
       <div>
+        <label for="season-filter">SEASON:</label>
+        <select id="season-filter" name="season">
+          <option value="">All</option>
+          <?php
+          $seasonQuery = $conn->query("SELECT DISTINCT `SEASON` FROM `tempdb`");
+          $seasonData = $seasonQuery->fetchAll();
+          foreach ($seasonData as $season) {
+            $selected = ($_GET['season'] ?? '') == $season['SEASON'] ? 'selected' : '';
+            echo "<option value=\"{$season['SEASON']}\" $selected>{$season['SEASON']}</option>";
+          }
+          ?>
+        </select>
+      </div>
+      <div>
         <label for="state-filter">STATE:</label>
         <select id="state-filter" name="state">
           <option value="">All</option>
@@ -126,6 +218,20 @@ try {
           foreach ($stateData as $state) {
             $selected = ($_GET['state'] ?? '') == $state['STATE'] ? 'selected' : '';
             echo "<option value=\"{$state['STATE']}\" $selected>{$state['STATE']}</option>";
+          }
+          ?>
+        </select>
+      </div>
+      <div>
+        <label for="pord-filter">HEALTH STATE:</label>
+        <select id="pord-filter" name="pord">
+          <option value="">All</option>
+          <?php
+          $pordQuery = $conn->query("SELECT DISTINCT `PORD` FROM `tempdb`");
+          $pordData = $pordQuery->fetchAll();
+          foreach ($pordData as $pord) {
+            $selected = ($_GET['pord'] ?? '') == $pord['PORD'] ? 'selected' : '';
+            echo "<option value=\"{$pord['PORD']}\" $selected>{$pord['PORD']}</option>";
           }
           ?>
         </select>
@@ -244,34 +350,54 @@ try {
     }
 
     function applyFilters() {
-      var userFilter = document.getElementById('user-filter').value;
-      var cropFilter = document.getElementById('crop-filter').value;
-      var monthFilter = document.getElementById('month-filter').value;
-      var partsFilter = document.getElementById('parts-filter').value;
-      var stateFilter = document.getElementById('state-filter').value;
-      var url = 'display.php';
+  var userFilter = document.getElementById('user-filter').value;
+  var cropFilter = document.getElementById('crop-filter').value;
+  var monthFilter = document.getElementById('month-filter').value;
+  var yearFilter = document.getElementById('year-filter').value;
+  var stageFilter = document.getElementById('stage-filter').value;
+  var partsFilter = document.getElementById('parts-filter').value;
+  var seasonFilter = document.getElementById('season-filter').value;
+  var stateFilter = document.getElementById('state-filter').value;
+  var pordFilter = document.getElementById('pord-filter').value;
+  var url = 'display.php';
 
-      if (userFilter || cropFilter || monthFilter || partsFilter || stateFilter) {
-        url += '?';
-        if (userFilter) {
-          url += 'user=' + userFilter + '&';
-        }
-        if (cropFilter) {
-          url += 'crop=' + cropFilter + '&';
-        }
-        if (monthFilter) {
-          url += 'month=' + monthFilter + '&';
-        }
-        if (partsFilter) {
-          url += 'parts=' + partsFilter + '&';
-        }
-        if (stateFilter) {
-          url += 'state=' + stateFilter;
-        }
-      }
-
-      window.location.href = url;
+  if (userFilter || cropFilter || monthFilter || yearFilter || stageFilter || partsFilter || seasonFilter || stateFilter || pordFilter) {
+    url += '?';
+    if (userFilter) {
+      url += 'user=' + userFilter + '&';
     }
+    if (cropFilter) {
+      url += 'crop=' + cropFilter + '&';
+    }
+    if (monthFilter) {
+      url += 'month=' + monthFilter + '&';
+    }
+    if (yearFilter) {
+      url += 'year=' + yearFilter + '&';  // Include the year filter
+    }
+    if (stageFilter) {
+      url += 'stage=' + stageFilter + '&';
+    }
+    if (partsFilter) {
+      url += 'parts=' + partsFilter + '&';
+    }
+    if (seasonFilter) {
+      url += 'season=' + seasonFilter + '&';
+    }
+    if (stateFilter) {
+      url += 'state=' + stateFilter + '&';
+    }
+    if (pordFilter) {
+      url += 'pord=' + pordFilter + '&';
+    }
+    // Remove the trailing '&' from the URL
+    url = url.slice(0, -1);
+  }
+
+  // Redirect to the filtered URL
+  window.location.href = url;
+}
+
 
     function resetFilters() {
       window.location.href = 'display.php';
