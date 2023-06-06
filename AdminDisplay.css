@@ -1,6 +1,12 @@
 html {
     background-color: cornsilk;
 }
+.filters {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+  }
 
 .content th,
 .content td {

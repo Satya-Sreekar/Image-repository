@@ -109,16 +109,62 @@ try {
   </div>
   <div class="side-panel">
     <div class="filters">
-      <table border="0">
-      <tr>
-      <th colspan='9'>
-      <h2>Filters</h2>
-      </th>
-      </tr>  
-      <tr>
+      <table>
+        <tr>
+          <th colspan="9">
+            <h2>Filters</h2>
+          </th>
+        </tr>
+        <tr>
           <td>
             <div>
-              <label for="user-filter">USER:</label>
+              <label for="user-filter">USER</label>
+            </div>
+          </td>
+          <td>
+            <div>
+              <label for="crop-filter">CROP</label>
+            </div>
+          </td>
+          <td>
+            <div>
+              <label for="month-filter">MONTH</label>
+            </div>
+          </td>
+          <td>
+            <div>
+              <label for="year-filter">YEAR</label>
+            </div>
+          </td>
+          <td>
+            <div>
+              <label for="stage-filter">CROP STAGE</label>
+            </div>
+          </td>
+          <td>
+            <div>
+              <label for="parts-filter">PARTS AFFECTED</label>
+            </div>
+          </td>
+          <td>
+            <div>
+              <label for="season-filter">SEASON</label>
+            </div>
+          </td>
+          <td>
+            <div>
+              <label for="state-filter">STATE</label>
+            </div>
+          </td>
+          <td>
+            <div>
+              <label for="pord-filter">HEALTH STATE</label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div>
               <select id="user-filter" name="user">
                 <option value="">All</option>
                 <?php
@@ -134,7 +180,6 @@ try {
           </td>
           <td>
             <div>
-              <label for="crop-filter">CROP:</label>
               <select id="crop-filter" name="crop">
                 <option value="">All</option>
                 <?php
@@ -150,7 +195,6 @@ try {
           </td>
           <td>
             <div>
-              <label for="month-filter">MONTH:</label>
               <select id="month-filter" name="month">
                 <option value="">All</option>
                 <?php
@@ -166,7 +210,6 @@ try {
           </td>
           <td>
             <div>
-              <label for="year-filter">YEAR:</label>
               <select id="year-filter" name="year">
                 <option value="">All</option>
                 <?php
@@ -182,7 +225,6 @@ try {
           </td>
           <td>
             <div>
-              <label for="stage-filter">CROP STAGE:</label>
               <select id="stage-filter" name="stage">
                 <option value="">All</option>
                 <?php
@@ -198,7 +240,6 @@ try {
           </td>
           <td>
             <div>
-              <label for="parts-filter">PARTS AFFECTED:</label>
               <select id="parts-filter" name="parts">
                 <option value="">All</option>
                 <?php
@@ -214,7 +255,6 @@ try {
           </td>
           <td>
             <div>
-              <label for="season-filter">SEASON:</label>
               <select id="season-filter" name="season">
                 <option value="">All</option>
                 <?php
@@ -230,7 +270,6 @@ try {
           </td>
           <td>
             <div>
-              <label for="state-filter">STATE:</label>
               <select id="state-filter" name="state">
                 <option value="">All</option>
                 <?php
@@ -246,7 +285,6 @@ try {
           </td>
           <td>
             <div>
-              <label for="pord-filter">HEALTH STATE:</label>
               <select id="pord-filter" name="pord">
                 <option value="">All</option>
                 <?php
@@ -261,7 +299,6 @@ try {
             </div>
           </td>
         </tr>
-
         <div class="filter-buttons">
           <tr>
             <td colspan="4">
@@ -269,12 +306,13 @@ try {
             <td style="text-align: right;">
               <button onclick="applyFilters()" class="b1">Apply Filters</button>
             </td>
-            <td colspan="4">
+            <td colspan="4" style="text-align: left;">
               <button onclick="resetFilters()" class="b2">Reset Filters</button>
 
             </td>
           </tr>
       </table>
+
     </div>
 
   </div>
