@@ -13,7 +13,9 @@
         header("location:index.php");
         exit;
     }
-    $_SESSION['id'] =  $_POST["id"];
+    if(!isset($_SESSION['id'])){
+        $_SESSION['id'] =  $_POST["id"];
+    }
     $id=$_SESSION['id'];
     require('DBinfo.php');
     $C = "SELECT * FROM Crop";

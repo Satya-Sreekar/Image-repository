@@ -23,6 +23,7 @@ $state = $_SESSION['state'];
 $pord = $_SESSION['PORD'];
 $area = $_SESSION['Area'];
 $bg = $_SESSION['bg'];
+$un=$_SESSION['UN'];
 if ($_SESSION['PORD'] != 'pest' || $_SESSION['PORD'] != 'disease') {
   $pordname = urldecode($_SESSION['Efr']);
 } else {
@@ -35,72 +36,23 @@ if ($_SESSION['PORD'] != 'pest') {
   $imagecont = $_SESSION['Desc'];
   $stage = $_SESSION['Stage'];
 }
-// Check if the form has been submitted
-if (isset($_FILES['images'])) {
-  // Loop through all uploaded files
-  for ($i = 0; $i < count($_FILES['images']['name']); $i++) {
-    $image = $_FILES['images']['tmp_name'][$i];
-    $image_name = $_FILES['images']['name'][$i];
-    $image_size = $_FILES['images']['size'][$i];
-    $image_type = $_FILES['images']['type'][$i];
+// Getting image from tempdb
+$id = $_SESSION['id']; $query = "SELECT IMAGE FROM tempdb WHERE INAME = '$id'";
+$result = mysqli_query($conn, $query);
+$row = mysqli_fetch_assoc($result);
+$data = $row['IMAGE'];
 
-    // Check if the image is greater than 1 MiB
-    if ($image_size > 1048576) {
-      // Load the image
-      if ($image_type === 'image/jpeg' || $image_type === 'image/jpg') {
-        $source_image = imagecreatefromjpeg($image);
-      } elseif ($image_type === 'image/png') {
-        $source_image = imagecreatefrompng($image);
-      } elseif ($image_type === 'image/gif') {
-        $source_image = imagecreatefromgif($image);
-      } else {
-        die('Unsupported image type: ' . $image_type);
-      }
+// Insert the image into the database               
+$sql = "INSERT INTO permdb (`User`,`CROP`, `MONTH`, `YEAR`, `CROP STAGE`, `PARTS-AFFECTED`, `DEVICE/SHOT`, `SEASON`, `STATE`, `PORD`, `AREA`, `BACKGROUND`, `PORDNAME`, `IMGCONTAINS`, `STAGE`, `IMAGE`)
+        VALUES ('$un','$crop', '$month', '$year', '$cs', '$part', '$device', '$season', '$state', '$pord', '$area', '$bg', '$pordname', '$imagecont', '$stage', ?)";
 
-      // Get the current dimensions of the image
-      $width = imagesx($source_image);
-      $height = imagesy($source_image);
+$stmt = mysqli_prepare($conn, $sql);
+mysqli_stmt_bind_param($stmt, "s", $data);
+mysqli_stmt_execute($stmt);
 
-      // Calculate the new dimensions to resize the image
-      $new_width = $width / 2;
-      $new_height = $height / 2;
-
-      // Create a new image with the new dimensions
-      $destination_image = imagecreatetruecolor($new_width, $new_height);
-
-      // Resize the image
-      imagecopyresampled($destination_image, $source_image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
-
-      // Save the compressed image to a temporary file
-      $temp_file = tempnam(sys_get_temp_dir(), 'compressed_image_');
-      if ($image_type === 'image/jpeg' || $image_type === 'image/jpg') {
-        imagejpeg($destination_image, $temp_file);
-      } elseif ($image_type === 'image/png') {
-        imagepng($destination_image, $temp_file);
-      } elseif ($image_type === 'image/gif') {
-        imagegif($destination_image, $temp_file);
-      }
-
-      // Read the binary data of the compressed image
-      $data = file_get_contents($temp_file);
-
-      // Delete the temporary file
-      unlink($temp_file);
-    } else {
-      // Read the binary data of the original image
-      $data = file_get_contents($image);
-    }
-
-    // Escape the binary data to prevent SQL injection
-    $data = mysqli_real_escape_string($conn, $data);
-
-    // Insert the image into the database               
-    $sql = "INSERT INTO permdb (`CROP`, `MONTH`, `YEAR`, `CROP STAGE`,`PARTS-AFFECTED`, `DEVICE/SHOT`, `SEASON`, `STATE`, `PORD`, `AREA`, `BACKGROUND`, `PORDNAME`, `IMGCONTAINS`, `STAGE`, `IMAGE`)
-                       VALUES ('$crop' ,'$month','$year','$cs'       ,'$part'          ,'$device'     ,'$season','$state','$pord','$area','$bg'       ,'$pordname','$imagecont','$stage', '$data')";
-    mysqli_query($conn, $sql);
-  }
-}
-
+mysqli_stmt_close($stmt);
+$sql = "DELETE FROM tempdb WHERE IName =" . $id;
+$result = $conn->query($sql);
 ?>
 <html>
 <body>

@@ -52,8 +52,8 @@ try {
             <th><h2 class="z">HEALTH STATE</h2></th>
             <th><h2 class="z">AREA</h2></th>
             <th><h2 class="z">BACKGROUND</h2></th>
-            <th><h2 class="z">IMAGEDESC</h2></th>
-            <th><h2 class="z">IMAGECONT</h2></th>
+            <th><h2 class="z">SCI NAME</h2></th>
+            <th><h2 class="z">IMAGE CONTENTS</h2></th>
             <th><h2 class="z">Click here to download</h2></th>
         </tr>
         <?php foreach ($data as $row): ?>
@@ -94,7 +94,9 @@ try {
                 </td>
             </tr>
             <tr>
-                <td colspan="9"><br></td>
+                <td colspan="9">
+                    <center><h3>Uploaded By: <?= $row['User'];?></h3></center>
+                </td>
             </tr>
         <?php endforeach; ?>
     </table>

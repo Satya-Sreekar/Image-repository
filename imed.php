@@ -8,15 +8,6 @@
         header("location:index.php");
         exit;
     }
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $uploads_dir = 'images/'; // set the directory path where images will be uploaded
-
-        if (empty($_FILES['images']['name'][0])) { // check if no image files have been uploaded
-            echo "<script>alert('Please select at least one image to upload.');</script>"; // display an alert message
-        } else { // proceed with image upload process as normal
-            // YOUR IMAGE UPLOAD CODE HERE
-        }
-    }
     ?>
     <title>
         Image Upload
@@ -26,7 +17,7 @@
 
 <body>
     <div class='heading'>
-        <button onclick="window.location.href = 'user.php';">
+        <button onclick="window.location.href = 'edit.php';">
             &larr; Go Back
         </button>
         <center>
