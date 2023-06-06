@@ -67,7 +67,7 @@ try {
                 <td><center><?= $row['MONTH'] ?></center></td>
                 <td><center><?= $row['YEAR'] ?></center></td>
                 <td><center><?= $row['CROP STAGE'] ?></center></td>
-                <td><center><?= $row['PARTS-AFFECTED'] ?></center></td>
+                <td><center><?= $row['STATE'] ?></center></td>
                 <td><center><?= $row['DEVICE/SHOT'] ?></center></td>
                 <td><center><?= $row['STAGE'] ?></center></td>
                 <td rowspan="2">
@@ -78,7 +78,7 @@ try {
             </tr>
             <tr>
                 <td><center><?= $row['SEASON'] ?></center></td>
-                <td><center><?= $row['STATE'] ?></center></td>
+                <td><center><?= $row['PARTS-AFFECTED'] ?></center></td>
                 <td><center><?= $row['PORD'] ?></center></td>
                 <td><center><?= $row['AREA'] ?></center></td>
                 <td><center><?= $row['BACKGROUND'] ?></center></td>

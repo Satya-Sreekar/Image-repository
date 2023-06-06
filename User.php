@@ -1,9 +1,8 @@
+<!DOCTYPE html>
 <html>
-
 <head>
-    <title>
-        Submition Form
-    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Form</title>
     <link rel="stylesheet" href="User.css">
 </head>
 
@@ -15,24 +14,21 @@
         exit;
     }
     require('DBinfo.php');
-    $C = "SELECT * FROM Crop";
+    $cropQuery = "SELECT * FROM Crop";
     ?>
-    <div class='heading'>
+    <div class="heading">
         <div></div>
         <center>
-            <h1>
-                Upload Crop Details
-            </h1>
+            <h1>Upload Crop Details</h1>
         </center>
         <button onclick="window.location.href = 'logout.php';">Logout</button>
-    </div>
     </div>
     <div id="box">
         <form action="UPro.php" method="POST">
             <table align="center" cellpadding="3px">
                 <tr>
                     <td colspan="2" align="center">
-                        <h2>Select Crop<h2>
+                        <h2>Select Crop</h2>
                     </td>
                     <td colspan="2" align="center">
                         <h2>Select Month</h2>
@@ -40,17 +36,14 @@
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
-                        <select id="Crop" name="Crop">'
+                        <select id="Crop" name="Crop">
                             <?php
-
-                            if ($result = $conn->query($C)) {
-                                while ($row = $result->fetch_assoc()) {
-                                    $Crop = $row["CName"];
-                                    echo '<H1><option value=' . $Crop . '>' . $Crop . '</option></h1>';
+                            if ($result = $conn->query($cropQuery)) {
+                                foreach ($result as $row) {
+                                    $crop = $row["CName"];
+                                    echo '<option value="' . $crop . '">' . $crop . '</option>';
                                 }
-                                echo
-                                    '</select>
-                                </td>';
+                                echo '</select></td>';
                                 $result->free();
                             }
                             ?>
@@ -65,7 +58,7 @@
                             <option value="June">June</option>
                             <option value="July">July</option>
                             <option value="August">August</option>
-                            <option value="Septmember">Septmember</option>
+                            <option value="September">September</option>
                             <option value="October">October</option>
                             <option value="November">November</option>
                             <option value="December">December</option>
@@ -74,14 +67,10 @@
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
-                        <h2>
-                            Select Year
-                        </h2>
+                        <h2>Select Year</h2>
                     </td>
                     <td colspan="2" align="center">
-                        <h2>
-                            Crop stage
-                        </h2>
+                        <h2>Crop Stage</h2>
                     </td>
                 </tr>
                 <tr>
@@ -106,7 +95,7 @@
                         </select>
                     </td>
                     <td colspan="2" align="center">
-                        <select class='l' id="cstage" name="cstage">
+                        <select id="cstage" name="cstage">
                             <option value="Germination">Germination stage</option>
                             <option value="Seedling">Seedling stage</option>
                             <option value="Rosette">Rosette stage</option>
@@ -121,14 +110,10 @@
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
-                        <h3>
-                            Parts Affected
-                        </h3>
+                        <h3>Parts Affected</h3>
                     </td>
                     <td colspan="2" align="center">
-                        <h2>
-                            Device/shot
-                        </h2>
+                        <h2>Device/Shot</h2>
                     </td>
                 </tr>
                 <tr>
@@ -154,18 +139,14 @@
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
-                        <h2>
-                            Season
-                        </h2>
+                        <h2>Season</h2>
                     </td>
                     <td colspan="2" align="center">
-                        <h3>
-                            State
-                        </h3>
+                        <h3>State</h3>
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" align="cetner">
+                    <td colspan="2" align="center">
                         <select id="season" name="season" class="pageElement">
                             <option value="Kharif">Kharif</option>
                             <option value="Rabi">Rabi</option>
@@ -207,14 +188,10 @@
                 </tr>
                 <tr>
                     <td colspan="2" align="center">
-                        <h3>
-                            Plant Health Status
-                        </h3>
+                        <h3>Plant Health Status</h3>
                     </td>
                     <td colspan="2" align="center">
-                        <h3>
-                            Place
-                        </h3>
+                        <h3>Place</h3>
                     </td>
                 </tr>
                 <tr>
@@ -223,13 +200,12 @@
                             <option value="pest">Pest</option>
                             <option value="disease">Disease</option>
                             <option value="NaturalEnemy">Natural Enemy</option>
-                            <option value="Nutrient Defficiency">Nutrient Defficency</option>
+                            <option value="Nutrient Defficiency">Nutrient Deficiency</option>
                             <option value="healthy">Healthy</option>
                         </select>
                     </td>
                     <td colspan="2" align="center">
-                        <input type="text" name="Area" id="Area"
-                            oninput="this.value=this.value.replace(/[^a-zA-Z]/g,'');" required>
+                        <input type="text" name="Area" id="Area" oninput="this.value=this.value.replace(/[^a-zA-Z]/g,'');" required>
                     </td>
                 </tr>
                 <tr>

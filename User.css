@@ -124,7 +124,16 @@ input[type=submit]:active {
     }
 
     .heading {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Adjust the green background element */
+    .heading {
         padding: 0.33em 5%;
+        width: 100vw;
+        justify-content: center;
+        box-sizing: border-box;
     }
 
     button {
@@ -139,6 +148,8 @@ input[type=submit]:active {
     input[type=submit] {
         padding: 0.4em 3%;
         margin-top: 2%;
+        width: 100%;
+        margin-top: 1em;
     }
 
     .l {
