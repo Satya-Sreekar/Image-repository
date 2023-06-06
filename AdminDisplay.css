@@ -125,3 +125,6 @@ select {
     background-color: #fff;
     background-image: linear-gradient(to bottom, #f9f9f9, #e8e8e8);
   }
+label {
+  font-weight: bold;
+}
