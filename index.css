@@ -4,6 +4,7 @@
         background-color: #f9f4ca;
         margin: 0;
         padding: 0;
+        max-height: min-content;
       }
   
       .heading {
@@ -33,7 +34,7 @@
         align-items: flex-start;
         justify-content: center;
         width: 100%;
-        min-height: 100vh;
+        max-height: min-content;
         margin-top: 15vh;
       }
   
@@ -58,6 +59,7 @@
   
       label,
       input,
+      button,
       select {
         display: block;
         width: 100%;
@@ -96,6 +98,22 @@
         pointer-events: none;
         font-size: 20px;
       }
+      button {
+        background-color: rgb(7, 138, 7);
+        padding: 0.23em 2%;
+        color: white;
+        border-radius: 15px;
+        font-size: 1em;
+        padding: 16px 20px;
+        border: none;
+        transition: border 1ms;
+        margin: 10px 0 0;
+        width: min-content;
+        min-width: 130px;
+        cursor: pointer;
+        display: inline;
+        margin-right: 2.2vh;
+    }
   
       input[type="submit"] {
         background-color: rgb(7, 138, 7);
@@ -126,4 +144,10 @@
         .heading{
           display: flex;
         }
+      }
+      footer{
+        margin-top: 6vh;
+        padding: 0.5vh;
+        background-color: #4aae4e;
+        text-align: center;
       }

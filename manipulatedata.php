@@ -99,9 +99,47 @@ if (!isset($_SESSION['UN'])) {
             text-decoration: none;
             margin: 10px 0;
             cursor: pointer;
+        
+        }
+        .logout {
+            padding: 10px 20px;
+            background-color: rgb(7, 138, 7);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .logout:hover {
+            background-color: #429843;
+        }
+
+        .heading {
+            position:fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #4AAF4E;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 9999;
+        }
+        .logout
+        {
+            margin-right: 1%;
         }
     </style>
 </head>
+<header>
+    <div class='heading'>
+        <button class='logout' onclick="window.location.href = 'manipulate.php';">&larr; Go Back</button>
+        <h1 class="ol">Create New User</h1>
+        <button class='logout' onclick="window.location.href = 'logout.php';">Logout</button>
+    </div>
+</header>
 
 <body>
     <div class="container">

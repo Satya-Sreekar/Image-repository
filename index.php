@@ -29,8 +29,13 @@
         <span class="select-arrow">&#9662;</span>
       </div>
       <input type="submit" value="Submit">
+      <button onclick="window.location.href = 'dash.php';">Dashboard</button>
+      <button onclick="window.location.href = 'dash.php';">Team</button>
     </form>
   </div>
 </div>
 </body>
+<footer>
+  <h3>&copy;Developed by <a href="https://icar-iior.org.in/">ICAR-IIOR</a> in collaboration with <a href="https://klh.edu.in">KLEF</a>, hyderabd</h3>
+</footer>
 </html>

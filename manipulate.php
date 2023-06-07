@@ -25,13 +25,18 @@
                     <td><button type="submit" formaction="removeuser.php" style="--clr:#39FF14"><span>DELETE USERS</span><i></i></button></td>
                 </tr>
                 <tr>
-                    <td><button type="submit" formaction="addcrop.php" style="--clr:#39FF14"><span>ADD CROP</span><i></i></button></td>
                     <td><button type="submit" formaction="manipulatedata.php" style="--clr:#39FF14"><span>MODIFY CROP DATA</span><i></i></button></td>
+                    <td><button type="submit" formaction="addcrop.php" style="--clr:#39FF14"><span>ADD NEW CROP</span><i></i></button></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit" formaction="AdminDisplay.php" style="--clr:#39FF14"><span>VIEW APPROVED ENTRIES</span><i></i></button></td>
+                </tr>
+                <tr>
+                    <td><button type="submit" formaction="download.php" style="--clr:#39FF14"><span>Download All</span><i></i></button></td>
+                    <td><button type="submit" formaction="gallery.php" style="--clr:#39FF14"><span>Image Gallery</span><i></i></button></td>
                 </tr>
             </table>
-            <button type="submit" formaction="AdminDisplay.php" style="--clr:#39FF14"><span>VIEW APPROVED ENTRIES</span><i></i></button>
-            <button type="submit" formaction="download.php" style="--clr:#39FF14"><span>Download All</span><i></i></button>
-            <button type="submit" formaction="gallery.php" style="--clr:#39FF14"><span>GALLERY</span><i></i></button>
+            
         </form>
     </div>
 </body>

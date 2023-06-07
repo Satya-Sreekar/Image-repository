@@ -71,6 +71,7 @@ $stmt->execute(); ?>
 
         </h1>
         <div>
+            <h2 class="a"><a href="manipulate.php" class="button">Home</a></h2>
             <h2 class="a"><a href="logout.php" class="button">Logout</a></h2>
         </div>
     </center>

@@ -1,19 +1,9 @@
-<?php
-session_start();
-if (!isset($_SESSION['UN'])) {
-    header("location:index.php");
-    exit;
-}
-require('DBinfo.php');
-
-$_SESSION['Crop']=$_POST['Crop'];
-$_SESSION['hs']=$_POST['hs'];
-?>
-
 <!DOCTYPE html>
 <html>
+
 <head>
-    <title>ADD Component</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove USERS</title>
     <style>
         body {
             background: cornsilk;
@@ -42,13 +32,6 @@ $_SESSION['hs']=$_POST['hs'];
             align-items: center;
         }
 
-        label {
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        input[type="password"],
         select {
             margin-bottom: 20px;
             appearance: none;
@@ -59,10 +42,9 @@ $_SESSION['hs']=$_POST['hs'];
             background-color: white;
             font-size: 16px;
             font-family: Arial, sans-serif;
+            align-content: center;
         }
 
-        input[type="text"]:focus,
-        input[type="password"]:focus,
         select:focus {
             outline: none;
             border-color: #555;
@@ -102,23 +84,24 @@ $_SESSION['hs']=$_POST['hs'];
 </head>
 <header>
     <div class='heading'>
-        <button class='logout' onclick="window.location.href = 'manipulatedata.php';">&larr; Go Back</button>
-        <h1 class="ol">ADD <?=$_SESSION['Crop']?> <?=$_SESSION['hs']?></h1>
+        <button class='logout' onclick="window.location.href = 'manipulate.php';">&larr; Go Back</button>
+        <h1 class="ol">Remove Existing User</h1>
         <button class='logout' onclick="window.location.href = 'logout.php';">Logout</button>
     </div>
 </header>
+
 <body>
     <div class="container">
-        <h1>ADD <?=$_SESSION['Crop']?> <?=$_SESSION['hs']?></h1>
-        <h4>Note:For Nutrient Defficiency Enter the same in both</h4>
-        <form action="submit.php" method="POST">
-            <label for="Name">Name:</label>
-            <input type="text" name="Name" id="Name" pattern="[a-zA-Z0-9]+" required>
-
-            <label for="pwd">Scientific Name:</label>
-            <input type="text" name="SN" id="SN" pattern="[a-zA-Z0-9]+" required>
+        <h1>Select Privilage</h1>
+        <form action="DelUsers.php" method="POST">
+            <select id="usertype" name="usertype">
+                <option value="user">User</option>
+                <option value="moderator">Approver</option>
+                <option value="admin">Admin</option>
+            </select>
             <input type="submit" value="Submit">
         </form>
     </div>
 </body>
+
 </html>

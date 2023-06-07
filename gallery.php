@@ -21,34 +21,39 @@ $result = $conn->query($sql);
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Image Display</title>
-    <link rel="stylesheet" type="text/css" href="gallary.css">
+    <link rel="stylesheet" type="text/css" href="gallery.css">
 </head>
+
 <body>
-    <div class="container">
-        <h1>IMAGE GALLERY</h1>
-        <div class="logout-container">
-            <form method="POST" action="">
-                <input type="submit" name="logout" value="Logout">
-            </form>
-        </div>
+    <div class='heading'>
+        <button onclick="window.location.href = 'manipulate.php';">&larr; Go Back</button>
+        <center>
+            <h1>Image Upload</h1>
+        </center>
+        <button onclick="window.location.href = 'logout.php';">Logout</button>
+    </div>
     </div>
 
     <div class="image-gallery">
-        <?php if ($result->num_rows > 0) : ?>
-            <?php while ($row = $result->fetch_assoc()) : ?>
+        <?php if ($result->num_rows > 0): ?>
+            <?php while ($row = $result->fetch_assoc()): ?>
                 <div class="image-card">
                     <img src="data:image/jpeg;base64,<?= base64_encode($row['IMAGE']) ?>">
-                    <p><?= $row['IName'] ?></p>
+                    <p>
+                        <?= $row['IName'] ?>
+                    </p>
                 </div>
             <?php endwhile; ?>
-        <?php else : ?>
+        <?php else: ?>
             <p>No images found.</p>
         <?php endif; ?>
     </div>
 
 </body>
+
 </html>
 
 <?php

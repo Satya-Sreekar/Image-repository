@@ -8,24 +8,31 @@ if (!isset($_SESSION['UN'])) {
 }
 
 require('DBinfo.php');
-$_SESSION['Uid'] = $_POST['Uid'];
-$_SESSION['pwd'] = $_POST['pwd'];
+$_SESSION['Name'] = $_POST['Name'];
+$_SESSION['SN'] = $_POST['SN'];
+$cn=$_SESSION['Crop'];
+$hs=$_SESSION['hs'];
+$tb=$cn.$hs;
+////////////////////////////////////////////////////////////////////////////////
+//Author: Satya Sreekar Pattaswmi                                             //
+//Date: 7th June 2023                                                         //
+//Desc: This is the backend for adding more pests and diseases to the table   //
+//email: satyasreekarpattaswami@gmail.com                                     //
+////////////////////////////////////////////////////////////////////////////////
 
 // Build the SQL query according to the selected user type
-if ($_SESSION['usertype'] == 'User') {
-    $sql = "INSERT INTO user (Uid, pd) VALUES ('" . $_SESSION['Uid'] . "', '" . $_SESSION['pwd'] . "')";
-} elseif ($_SESSION['usertype'] == 'Approver') {
-    $_SESSION['spz'] = $_POST['spz'];
-    $sql = "INSERT INTO moderator (Uid, pd, spz) VALUES ('" . $_SESSION['Uid'] . "', '" . $_SESSION['pwd'] . "', '" . $_SESSION['spz'] . "')";
-} elseif ($_SESSION['usertype'] == 'Admin') {
-    $sql = "INSERT INTO admin (Uid, pd) VALUES ('" . $_SESSION['Uid'] . "', '" . $_SESSION['pwd'] . "')";
+if ($_SESSION['hs'] != 'ND') {
+    $sql = "INSERT INTO  $tb(PName, SCName) VALUES ('" . $_SESSION['Name'] . "', '" . $_SESSION['SN'] . "')";
+}
+else{
+    $sql = "INSERT INTO nutrients(name) VALUES('" . $_SESSION['Name'] . "')";
 }
 
 // Execute the query
 if ($conn->query($sql) === TRUE) {
-    $message = "New record created successfully";
+    $message = 'Record created successfully';
 } else {
-    $message = '"Error: " . $sql . "<br>" . $conn->error';
+    $message = "'Error:' . $sql . '<br>' . $conn->error";
 }
 ?>
 
@@ -74,8 +81,7 @@ if ($conn->query($sql) === TRUE) {
 </head>
 <body>
     <div class="container">
-        <h1>Add Users</h1>
-        <p><?php echo $message; ?></p>
+        <h1><?=$message;?></h1>
         <center><button onclick="window.location.href = 'manipulate.php';">Home</button></center>
         <br>
         <center><button onclick="window.location.href = 'logout.php';">Logout</button></center>
