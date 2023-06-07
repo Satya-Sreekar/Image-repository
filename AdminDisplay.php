@@ -168,7 +168,7 @@ $data = $stmt->fetchAll();
               <select id="user-filter" name="user">
                 <option value="">All</option>
                 <?php
-                $userQuery = $conn->query("SELECT DISTINCT `User` FROM `tempdb`");
+                $userQuery = $conn->query("SELECT DISTINCT `User` FROM `permdb`");
                 $userData = $userQuery->fetchAll();
                 foreach ($userData as $user) {
                   $selected = ($_GET['user'] ?? '') == $user['User'] ? 'selected' : '';
@@ -183,7 +183,7 @@ $data = $stmt->fetchAll();
               <select id="crop-filter" name="crop">
                 <option value="">All</option>
                 <?php
-                $cropQuery = $conn->query("SELECT DISTINCT `CROP` FROM `tempdb`");
+                $cropQuery = $conn->query("SELECT DISTINCT `CROP` FROM `permdb`");
                 $cropData = $cropQuery->fetchAll();
                 foreach ($cropData as $crop) {
                   $selected = ($_GET['crop'] ?? '') == $crop['CROP'] ? 'selected' : '';
@@ -198,7 +198,7 @@ $data = $stmt->fetchAll();
               <select id="month-filter" name="month">
                 <option value="">All</option>
                 <?php
-                $monthQuery = $conn->query("SELECT DISTINCT `MONTH` FROM `tempdb`");
+                $monthQuery = $conn->query("SELECT DISTINCT `MONTH` FROM `permdb`");
                 $monthData = $monthQuery->fetchAll();
                 foreach ($monthData as $month) {
                   $selected = ($_GET['month'] ?? '') == $month['MONTH'] ? 'selected' : '';
@@ -213,7 +213,7 @@ $data = $stmt->fetchAll();
               <select id="year-filter" name="year">
                 <option value="">All</option>
                 <?php
-                $yearQuery = $conn->query("SELECT DISTINCT `YEAR` FROM `tempdb`");
+                $yearQuery = $conn->query("SELECT DISTINCT `YEAR` FROM `permdb`");
                 $yearData = $yearQuery->fetchAll();
                 foreach ($yearData as $year) {
                   $selected = ($_GET['year'] ?? '') == $year['YEAR'] ? 'selected' : '';
@@ -228,7 +228,7 @@ $data = $stmt->fetchAll();
               <select id="stage-filter" name="stage">
                 <option value="">All</option>
                 <?php
-                $stageQuery = $conn->query("SELECT DISTINCT `CROP STAGE` FROM `tempdb`");
+                $stageQuery = $conn->query("SELECT DISTINCT `CROP STAGE` FROM `permdb`");
                 $stageData = $stageQuery->fetchAll();
                 foreach ($stageData as $stage) {
                   $selected = ($_GET['stage'] ?? '') == $stage['CROP STAGE'] ? 'selected' : '';
@@ -243,7 +243,7 @@ $data = $stmt->fetchAll();
               <select id="parts-filter" name="parts">
                 <option value="">All</option>
                 <?php
-                $partsQuery = $conn->query("SELECT DISTINCT `PARTS-AFFECTED` FROM `tempdb`");
+                $partsQuery = $conn->query("SELECT DISTINCT `PARTS-AFFECTED` FROM `permdb`");
                 $partsData = $partsQuery->fetchAll();
                 foreach ($partsData as $parts) {
                   $selected = ($_GET['parts'] ?? '') == $parts['PARTS-AFFECTED'] ? 'selected' : '';
@@ -258,7 +258,7 @@ $data = $stmt->fetchAll();
               <select id="season-filter" name="season">
                 <option value="">All</option>
                 <?php
-                $seasonQuery = $conn->query("SELECT DISTINCT `SEASON` FROM `tempdb`");
+                $seasonQuery = $conn->query("SELECT DISTINCT `SEASON` FROM `permdb`");
                 $seasonData = $seasonQuery->fetchAll();
                 foreach ($seasonData as $season) {
                   $selected = ($_GET['season'] ?? '') == $season['SEASON'] ? 'selected' : '';
@@ -273,7 +273,7 @@ $data = $stmt->fetchAll();
               <select id="state-filter" name="state">
                 <option value="">All</option>
                 <?php
-                $stateQuery = $conn->query("SELECT DISTINCT `STATE` FROM `tempdb`");
+                $stateQuery = $conn->query("SELECT DISTINCT `STATE` FROM `permdb`");
                 $stateData = $stateQuery->fetchAll();
                 foreach ($stateData as $state) {
                   $selected = ($_GET['state'] ?? '') == $state['STATE'] ? 'selected' : '';
@@ -288,7 +288,7 @@ $data = $stmt->fetchAll();
               <select id="pord-filter" name="pord">
                 <option value="">All</option>
                 <?php
-                $pordQuery = $conn->query("SELECT DISTINCT `PORD` FROM `tempdb`");
+                $pordQuery = $conn->query("SELECT DISTINCT `PORD` FROM `permdb`");
                 $pordData = $pordQuery->fetchAll();
                 foreach ($pordData as $pord) {
                   $selected = ($_GET['pord'] ?? '') == $pord['PORD'] ? 'selected' : '';
