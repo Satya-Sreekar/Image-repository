@@ -19,8 +19,13 @@
 </div>
     <div class="login">
         <form>
-            <button type="submit" formaction="addusers.php" style="--clr:#39FF14"><span>CREATE USERS</span><i></i></button>
-            <button type="submit" formaction="manipulatedata.php" style="--clr:#39FF14"><span>MANIPULATE CROP DATA</span><i></i></button>
+            <table>
+                <tr>
+                    <td><button type="submit" formaction="addusers.php" style="--clr:#39FF14"><span>CREATE USERS</span><i></i></button></td>
+                    <td><button type="submit" formaction="removeuser.php" style="--clr:#39FF14"><span>DELETE USERS</span><i></i></button></td>
+                </tr>
+            </table>
+            <button type="submit" formaction="manipulatedata.php" style="--clr:#39FF14"><span>MODIFY CROP DATA</span><i></i></button>
             <button type="submit" formaction="AdminDisplay.php" style="--clr:#39FF14"><span>VIEW APPROVED ENTRIES</span><i></i></button>
             <button type="submit" formaction="download.php" style="--clr:#39FF14"><span>Download All</span><i></i></button>
         </form>

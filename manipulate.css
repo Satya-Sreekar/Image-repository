@@ -119,6 +119,25 @@ button:active {
     opacity: 0.5;
 }
 
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-form,
+.right-form {
+  flex: 1;
+}
+
+.white-box {
+  width: 200px;
+  height: 200px;
+  background-color: #fff;
+  margin: 0 10px;
+}
+
+
 @keyframes move {
     0% {
         transform: translateX(0);

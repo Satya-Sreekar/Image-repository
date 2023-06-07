@@ -63,8 +63,8 @@ require('DBinfo.php');
 <body>
   <div class="container">
     <h2>Select <?=$_SESSION['hs']?> to Delete</h2>
-    <form action="finishpestdeletion.php" method="post">
-      <select id="CropPest" name="CropPest">
+    <form action="finishdeletion.php" method="post">
+      <select id="TBD" name="TBD">
       <?php
                 if ($_SESSION['hs'] != 'ND') {
                     $c = $_SESSION['Crop'] . $_SESSION['hs'];
@@ -81,14 +81,13 @@ require('DBinfo.php');
                     $stmt = $conn->query("SELECT * FROM nutrients");
                     while ($row = $stmt->fetch_assoc()) {
                         $o = $row['name'];
-                        echo '<option value=' . $o . '>' . $o . '</option> ';
+                        echo '<option value=' . urlencode($o) . '>' . $o . '</option> ';
                     }
                     $stmt->free_result();
                 }
                 ?>
       </select>
-      <button type="submit" name="updatechange"
-        onclick="return confirm(\'Are you sure you want to delete this?\')">DELETE</button>
+      <button type="submit" name="updatechange" onclick="return confirm('Are you sure you want to delete this?')">DELETE</button>
     </form>
   </div>
 </body>

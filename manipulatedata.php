@@ -106,7 +106,7 @@ if (!isset($_SESSION['UN'])) {
 <body>
     <div class="container">
         <h1>Modify Crop</h1>
-        <form action="DelSel.php" method="post">
+        <form name=form action="DelSel.php" method="post">
             <table>
                 <tr>
                     <th>Select Crop</th>
@@ -135,7 +135,8 @@ if (!isset($_SESSION['UN'])) {
                     </td>
                 </tr>
             </table>
-            <Input type='submit' value='Next'></Input>
+            <Input type='submit' value='Delete'></Input>
+            <Input type='submit' value='ADD' onclick="form.action='add.php';return true;"></Input>
         </form>
     </div>
 </body>

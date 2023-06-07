@@ -12,7 +12,7 @@ $_SESSION['usertype'] = $_POST['usertype'];
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ADD USERS</title>
+    <title>Remove USERS</title>
     <style>
         body {
             background: cornsilk;
@@ -101,42 +101,33 @@ $_SESSION['usertype'] = $_POST['usertype'];
 </head>
 <header>
     <div class='heading'>
-        <button class='logout' onclick="window.location.href = 'addusers.php';">&larr; Go Back</button>
-        <h1 class="ol">Create New User</h1>
+        <button class='logout' onclick="window.location.href = 'removeuser.php';">&larr; Go Back</button>
+        <h1 class="ol">Remove Existing User</h1>
         <button class='logout' onclick="window.location.href = 'logout.php';">Logout</button>
     </div>
 </header>
 <body>
-    <div class="container">
-        <h1>Create Users</h1>
-        <form action="submitusers.php" method="POST">
-            <label for="Uid">ID:</label>
-            <input type="text" name="Uid" id="Uid" pattern="[a-zA-Z0-9]+" required>
+<div class="container">
+    <h1>Select User To Delete</h1>
+    <form action="DeleteUsers.php" method="POST">
+        <div>
+            <select id="user" name="user">
+           <?php 
+           $query = "SELECT * FROM ".$_SESSION['usertype'];
+                $result = $conn->query($query);
 
-            <label for="pwd">Password:</label>
-            <input type="text" name="pwd" id="pwd" pattern="[a-zA-Z0-9]+" required>
+                // Check if the query was successful
+                foreach ($result as $row) {
+                        $uid = $row['Uid'];
+                        echo "<option value='$uid'>".$uid."</option>";
+                    }
+                    $result->free();
+                ?>
+            </select>
+        </div>
+        <input type="submit" value="DELETE" onclick="confirm">
+    </form>
+</div>
 
-            <?php
-            if ($_SESSION['usertype'] == 'Approver') {
-                echo '
-                    <label for="spz">Specialisation:</label>
-                    <select id="spz" name="spz">
-                        <option value="castordisease">Castor disease</option>
-                        <option value="castorpest">Castor Pests</option>
-                        <option value="sunflowerdisease">Sunflower diseases</option>
-                        <option value="sunflowerpest">Sunflower pests</option>
-                        <option value="safflowerdisease">Safflower disease</option>
-                        <option value="safflowerpest">Safflower pest</option>
-                        <option value="sesamedisease">Sesame disease</option>
-                        <option value="sesamepest">Sesame pest</option>
-                        <option value="linseeddisease">Linseed disease</option>
-                    </select>
-                ';
-            }
-            ?>
-
-            <input type="submit" value="Submit">
-        </form>
-    </div>
 </body>
 </html>
