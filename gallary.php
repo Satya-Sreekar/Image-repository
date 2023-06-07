@@ -23,7 +23,7 @@ $result = $conn->query($sql);
 <html>
 <head>
     <title>Image Display</title>
-    <link rel="stylesheet" type="text/css" href="gallery.css">
+    <link rel="stylesheet" type="text/css" href="gallary.css">
 </head>
 <body>
     <div class="container">
