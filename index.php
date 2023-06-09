@@ -30,7 +30,7 @@
       </div>
       <input type="submit" value="Submit">
       <button onclick="window.location.href = 'dash.php';">Dashboard</button>
-      <button onclick="window.location.href = 'dash.php';">Team</button>
+      <button onclick="window.location.href = 'team.html';">Team</button>
     </form>
   </div>
 </div>

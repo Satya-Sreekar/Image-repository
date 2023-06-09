@@ -98,7 +98,7 @@ button:active{
       Upload Sucessful
     </h1>
     <div>
-      <h2><a href="user.php" class="button">Upload More Images</a></h2>
+      <h2><a href="display.php" class="button">Go Back</a></h2>
       <h2 class="a"><a href="logout.php" class="button">Logout</a></h2>
     </div>
     </center>

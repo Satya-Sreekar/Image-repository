@@ -308,8 +308,8 @@ $data = $stmt->fetchAll();
             </td>
             <td colspan="4" style="text-align: left;">
               <button onclick="resetFilters()" class="b2">Reset Filters</button>
-
             </td>
+            
           </tr>
       </table>
     </div>

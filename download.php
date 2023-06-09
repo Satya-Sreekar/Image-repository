@@ -17,7 +17,7 @@ $stmt = $conn->prepare($sql);
 $stmt->execute();
 
 // Create a new folder to store the downloaded images
-$folder_name = 'downloaded_images';
+$folder_name = "downloaded_images";
 if (!file_exists($folder_name)) {
     mkdir($folder_name);
 }
@@ -38,7 +38,7 @@ $conn = null;
 
 // Zip the folder containing the downloaded images
 $zip = new ZipArchive();
-$zipname = 'downloaded_images.zip';
+$zipname = "downloaded_images.zip";
 
 if ($zip->open($zipname, ZipArchive::CREATE) === TRUE) {
     // Add all files in the folder to the zip archive
