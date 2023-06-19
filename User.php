@@ -14,7 +14,7 @@
         exit;
     }
     require('DBinfo.php');
-    $cropQuery = "SELECT * FROM Crop";
+    $cropQuery = "SELECT * FROM crop";
     ?>
     <div class="heading">
         <div></div>
