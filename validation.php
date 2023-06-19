@@ -10,9 +10,9 @@
         $rl=$_POST["role"];
         $UDB = "USE myDB";
         //echo "Name:" . $un . "<br>Password:" . $pwd . "<br>Role:" . $rl . "<br>";   //UNCOMMENT TO SEE THE DATA SENT FROM THE LOGIN PAGE
-        $DA = "SELECT * FROM Admin";
-        $DU = "SELECT * FROM User";
-        $DM = "SELECT * FROM Moderator";
+        $DA = "SELECT * FROM admin";
+        $DU = "SELECT * FROM user";
+        $DM = "SELECT * FROM moderator";
                                                                             // Check connection
         if ($conn->connect_error) 
             {                                             
