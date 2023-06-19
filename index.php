@@ -29,9 +29,10 @@
         <span class="select-arrow">&#9662;</span>
       </div>
       <input type="submit" value="Submit">
+          </form>
       <button onclick="window.location.href = 'dash.php';">Dashboard</button>
       <button onclick="window.location.href = 'team.html';">Team</button>
-    </form>
+
   </div>
 </div>
 </body>
