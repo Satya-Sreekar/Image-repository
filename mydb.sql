@@ -118,11 +118,11 @@ CREATE TABLE `crop` (
 --
 
 INSERT INTO `crop` (`Id`, `CName`) VALUES
-(1, 'Castor'),
-(2, 'Sunflower'),
-(3, 'Safflower'),
-(4, 'Sesame'),
-(5, 'Linseed');
+(1, 'castor'),
+(2, 'sunflower'),
+(3, 'safflower'),
+(4, 'sesame'),
+(5, 'linseed');
 
 -- --------------------------------------------------------
 
