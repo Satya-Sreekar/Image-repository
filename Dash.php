@@ -123,7 +123,7 @@
 </head>
 <body>
     <header>
-        <button onclick="window.location.href = 'index.php';">Go Back</button>
+        <button onclick="window.location.href = 'index.php';">&#x3c Back</button>
         <h1>Dashboard</h1>
     </header>
     <?php
