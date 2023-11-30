@@ -471,7 +471,7 @@ try {
             </td>
             <td>
               <center>
-                <form action="../downloadone.php" method="POST">
+                <form action="downloadone.php" method="POST">
                   <input type="hidden" name="id" value="<?= $id ?>">
                   <input class="butt1" type="submit" name="download" value="Download &#x2913;">
                 </form>
