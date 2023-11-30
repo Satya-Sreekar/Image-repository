@@ -1,16 +1,16 @@
 <?php
 
-    $servername = "10.100.7.174";
+    $servername = "localhost";
 
-    $username = "tilhantec_opdirs";
+    $username = "root";
 
-    $password = "Opdirs#070922";
+    $password = "";
 
     $conn = new mysqli($servername, $username, $password);
 
-    $UDB = "USE tilhantec_opdirs";
+    $UDB = "USE mydb";
 
-    $dbname='tilhantec_opdirs';
+    $dbname='mydb';
 
     $conn->query($UDB);
 
