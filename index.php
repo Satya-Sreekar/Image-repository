@@ -11,7 +11,7 @@
 Author: P Satya Sreekar
 Date:8-11-2023
 Description: The first page of the web application 
-Last Update:Fixec Heading
+Last Update:Fixed Heading
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
 -->
