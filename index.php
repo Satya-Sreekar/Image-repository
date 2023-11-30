@@ -15,16 +15,23 @@ Last Update:Fixec Heading
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! 
 -->
+
 <body>
   <div class="morehead">
     <div class="heading">
-      <img src="icar.png" alt="">
-      <h1><i>TilhanTec</i> - Oilseeds Pests and Diseases Image Repository System V2.0</h1>
-      <img src="iior-logo.jpg" alt="">
+      <div>
+        <img src="icar.png" alt="">
+      </div>
+      <div>
+        <h1><i>TilhanTec</i> - Oilseeds Pests and Diseases Image Repository System V2.0</h1>
+        <center>
+          <h5>(<i>TilhanTec</i> - OPDIRSV2.0)</h5>
+        </center>
+      </div>
+      <div>
+        <img src="iior-logo.jpg" alt="">
+      </div>
     </div>
-    <center>
-      <h5>(<i>TilhanTec</i> - OPDIRSV2.0)</h5>
-    </center>
   </div>
 
   <div class="log">
@@ -58,8 +65,7 @@ Last Update:Fixec Heading
   </div>
 </body>
 <footer>
-  <h3>&copy;Developed by <a href="https://icar-iior.org.in/">ICAR-IIOR</a> in collaboration with <a
-      href="https://klh.edu.in">KLEF</a>, Hyderabad</h3>
+  <h3>&copy;Developed by <a href="https://icar-iior.org.in/">ICAR-IIOR</a> in collaboration with <a href="https://klh.edu.in">KLEF</a>, Hyderabad</h3>
 </footer>
 
 </html>

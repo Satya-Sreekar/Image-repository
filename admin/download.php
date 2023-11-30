@@ -1,5 +1,5 @@
 <?php
-require('DBinfo.php');
+require('../DBinfo.php');
 
 try {
     // Create a new PDO instance
