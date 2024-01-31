@@ -47,20 +47,22 @@ Last Update:Fixed Heading
         <div class="select-container">
           <label for="role">Role:</label>
           <select id="role" name="role">
+            <center>
             <option value="User">User</option>
             <option value="Moderator">Approver</option>
             <option value="Admin">Admin</option>
+            </center> 
           </select>
+          <center>
           <span class="select-arrow">&#9662;</span>
+          </center>
         </div>
         <input type="submit" value="Submit">
       </form>
       <div class='buttons'>
-        <button onclick="window.location.href = 'Dash.php';">Dashboard</button>
-        <button onclick="window.location.href = 'team/team.html';">Team</button>
+        <button class="dsh"onclick="window.location.href = 'Dash.php';">Dashboard</button>
+        <button class="tem"onclick="window.location.href = 'team/team.html';">Team</button>
       </div>
-
-
     </div>
   </div>
 </body>
