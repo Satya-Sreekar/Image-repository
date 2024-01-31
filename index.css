@@ -1,14 +1,18 @@
-    /* Common styles for desktop and mobile */
+    /* Common styles for desktop and mobile
+    UI designed by Shahazaad Ahmed */
     html
     {
       height:100%;
+      box-sizing: border-box;
     }
     body {
         font-family: 'Ubuntu', sans-serif;
         background-color: #f9f4ca;
         margin: 0;
         padding: 0;
+        padding-bottom: 12vh  ;
         height: 100vh;
+        box-sizing: inherit;
       }
   
       .heading {
@@ -22,7 +26,7 @@
         background-color: white;
         padding: 5px;
         margin: 5px;
-        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.4);
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.1);
       }
       .morehead h5
       {
@@ -48,7 +52,8 @@
         justify-content: center;
         width: 100%;
         max-height: min-content;
-        margin-top: 5vh;
+        margin-top: 9vh;
+        min-height: calc(100vh - 135px - 100px);
       }
   
       .login {
@@ -56,10 +61,12 @@
         border-radius: 10px;
         background: #fff;
         padding: 30px;
+        padding-right: 6vh;
         max-width: 300px;
         width: 90%;
+        border: 2px grey black;
         -webkit-box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
-        box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.3);
+        box-shadow: 0 30px 60px 0 rgba(0, 0, 0, 0.4);
       }
   
       h2 {
@@ -81,31 +88,36 @@
       input[type="text"],
       input[type="password"],
       select {
-        margin-bottom: 10px;
+        margin-bottom: 15px;
         padding: 10px;
+        margin-left: o.5px;
         border-radius: 5px;
         border: 1px solid #ccc;
         font-size: 16px;
         background-color: #fff;
         background-image: linear-gradient(to bottom, #f9f9f9, #e8e8e8);
+        box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.08);
       }
   
       .select-container {
         position: relative;
+        
       }
   
       select {
         appearance: none;
         -webkit-appearance: none;
         -moz-appearance: none;
-        width: 100%;
+        width: 50%;
+        margin-left: 10vh;
         padding-right: 30px;
       }
   
       .select-arrow {
         position: absolute;
-        top: 50%;
-        right: 10px;
+        top: 60%;
+        margin-left: 5.7vh;
+        margin-bottom: 2vh;
         transform: translateY(-50%);
         color: #888;
         pointer-events: none;
@@ -135,20 +147,18 @@
         color: white;
         padding: 16px 32px;
         text-decoration: none;
-        margin: 10px 0;
+        margin: 10px 7px;
         cursor: pointer;
       }
       footer{
-        margin-top: 12vh;
         margin-bottom: 0;
         padding: 0.5vh;
         background-color: #4aae4e;
         text-align: center;
       }
       .buttons{
-        display: flex;    
+        display: flex;  
       }
-  
       /* Media query for mobile devices */
       @media only screen and (max-width: 600px) {
         .heading img,
@@ -168,8 +178,17 @@
           display: flex;
         }
       }
+      .tem{
+        margin-left: 2vh;
+      }
+      .dsh{
+        margin-left: 1vh;
+      }
+      .ret{
+        margin-left: 2px;
+      }
       footer{
-        margin-top: 12vh;
+        margin-bottom: 0;
         padding: 0.5vh;
         background-color: #4aae4e;
         text-align: center;
